@@ -4,7 +4,8 @@ import requests
 
 
 page = requests.get("https://www.bonarea.com/ca/default/locatefuelstation")
-print(page.content)
+#print(page.content)
 
 soup = BeautifulSoup(page.content, features="html.parser")
-print(soup.prettify())
+#print(soup.prettify())
+
