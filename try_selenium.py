@@ -49,6 +49,7 @@ def get_response(request_str):
     resp = response.json()
     print(resp)
 
+get_response(build_request())
 
 
 def get_data():
@@ -80,7 +81,9 @@ def get_by_id(id):
     gets a response for all relevant information belonging to an id. At this point the function just sends a request to the ajax page
     and gets back a json code
     """
-    headers = {'content-type': 'application/x-www-form-urlencoded; charset=UTF-8', 'origin': 'https://www.bonarea.com', 'Referer': 'https://www.bonarea.com/ca/default/locate'}
+    headers = {'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            'origin': 'https://www.bonarea.com',
+            'Referer': 'https://www.bonarea.com/ca/default/locate'}
     url = 'https://www.bonarea-agrupa.com/locator/Localitzador/GetByID'
     data = "id="+id+"&tipus=BENZINERA&language=ca"
     #params = {'sessionKey': '9ebbd0b25760557393a43064a92bae539d962103', 'format': 'xml', 'platformId': 1}
@@ -88,13 +91,16 @@ def get_by_id(id):
     resp = response.json()
     return resp
 
+get_by_id("A")
+
+
 def get_all_data_by_id():
     """
     Maps the function get_by_id to the list of ids obtained from get_data()
     The result is a list of json codes that help identifying different fields
     """
     return list(map(get_by_id, get_data()))
-    
+  
 def get_object_data():
     """
     uses the return from get_all_data_by_id, extracts the fields from each item of the list.
