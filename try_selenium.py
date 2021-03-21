@@ -49,12 +49,12 @@ def get_response(request_str):
     resp = response.json()
     print(resp)
 
-get_response(build_request())
+#get_response(build_request())
 
 
 def get_data():
     """
-    uses the rsponse from get_response and extracts data such as id, coordenades, type, etc. 
+    uses the response from get_response and extracts data such as id, coordenades, type, etc. 
     not all data types can be extracted from this view. So we return a list of ids and iterate over them later. 
     """
     ids = []
@@ -91,7 +91,7 @@ def get_by_id(id):
     resp = response.json()
     return resp
 
-get_by_id("A")
+#get_by_id("A")
 
 
 def get_all_data_by_id():
@@ -130,11 +130,14 @@ In the following code I´m attempting.. and getting the prices of gasoil A. This
 as in a dictionary or maybe saved as csv. From here we can go on and do a scheduled scraping
 """
 for line in get_all_data_by_id():
-    id = line["id"]
-    prices = line["preus"]
-    for price in prices:
-        if price.startswith("GASOIL A"):
-            print(price)
+    if type(line) != none:
+        id = line["id"]
+        prices = line["preus"]
+        for price in prices:
+            if price.startswith("GASOIL A"):
+               print(price)
+    else:
+        pass
 
 
 

@@ -1,3 +1,8 @@
 from try_selenium import *
 
-get_by_id("G027")
+for line in get_all_data_by_id():
+    id = line["id"]
+    prices = line["preus"]
+    for price in prices:
+        if price.startswith("GASOIL A"):
+            print(price)
