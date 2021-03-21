@@ -58,7 +58,7 @@ def get_data():
     not all data types can be extracted from this view. So we return a list of ids and iterate over them later. 
     """
     ids = []
-    for line in get_response():
+    for line in get_response(build_request()):
         id = line["id"]
         line["type"]
         #line["phone"]
