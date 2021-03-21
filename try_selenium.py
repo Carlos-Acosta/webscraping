@@ -130,14 +130,11 @@ In the following code I´m attempting.. and getting the prices of gasoil A. This
 as in a dictionary or maybe saved as csv. From here we can go on and do a scheduled scraping
 """
 for line in get_all_data_by_id():
-    if type(line) != none:
-        id = line["id"]
-        prices = line["preus"]
-        for price in prices:
-            if price.startswith("GASOIL A"):
-               print(price)
-    else:
-        pass
+    id = line["id"]
+    prices = line["preus"]
+    for price in prices:
+        if price.startswith("GASOIL A"):
+            print(price)
 
 
 
