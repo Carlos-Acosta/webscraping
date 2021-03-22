@@ -67,7 +67,7 @@ Para ésta práctica, se ha decidido hacer un estudio geográfico y temporal de 
 
 El dominio www.bonarea.com aporta una web dinámica que referencia a todas las divisiones de negocio del grupo, implementando diferentes esquemas de datos para que la experiencia del usuario final a nivel de visualización de la información sea clara y concisa.<p>
 
-(PONER FOTO DE LA PAGINA WEB)<p>
+(PONER FOTO DE LA PAGINA WEB - > CARLOS)<p>
 
 En el apartado de los establecimientos, y en particular en el de las gasolineras, la página web aporta diferentes datos sobre ellas, tando a nivel geográfico mediante un mapa interactivo para que el usuario sepa en todo momento dónde está la gasolinara más cercana, como a nivel económico (se muestran los precios de los diferentes carburantes disponibles en cada una de ellas).<p>
 

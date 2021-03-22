@@ -86,6 +86,7 @@ def get_df_row_by_id(gasolinera_id):
     dicc = get_by_id(gasolinera_id)
     df_dicc = pd.DataFrame([dicc])
     df_dicc["Fecha"] = datetime.today().strftime('%d-%m-%Y')
+    df_dicc["Dia_Semana"] = datetime.today().weekday()
     df_dicc_address = pd.json_normalize(df_dicc["address"])
     df_dicc_coordenades = pd.json_normalize(df_dicc["coordenades"])
     column_names_preus = ["GASOIL A", "GASOLINA S/P 95", "GASOLINA S/P 98", "ADBLUE"]

@@ -17,6 +17,4 @@ from main_functions import get_df_row_by_id
 from main_functions import update_dataframe
 
 
-list_petrol_station = get_id_gasolineras()
-
-update_dataframe(list_petrol_station)
+update_dataframe(get_id_gasolineras())
