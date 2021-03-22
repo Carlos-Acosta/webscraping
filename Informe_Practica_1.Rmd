@@ -29,7 +29,7 @@ options(width = 500)
 
 **INTRODUCCIÓN**
 
-Escribir introducción <p>
+Bonarea es una Escribir introducción <p>
 
 
 

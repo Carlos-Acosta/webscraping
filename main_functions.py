@@ -9,7 +9,11 @@ from pandas.io.json import json_normalize
 from datetime import datetime
 
 
-def build_request(list_of_types = ["super", "botiga", "benzinera", "bufet", "box", "cash", "diposit"]):
+
+
+
+
+def build_request(list_of_types = ["benzinera"]):
     """[summary]
         build_request generates a json search string from parameters
     Args:
@@ -47,7 +51,7 @@ def get_response(request_str):
     #params = {'sessionKey': '9ebbd0b25760557393a43064a92bae539d962103', 'format': 'xml', 'platformId': 1}
     response = requests.post(url, data=data, headers=headers)
     resp = response.json()
-    print(resp)
+    return resp
 
 
 def get_by_id(id):
@@ -66,13 +70,18 @@ def get_by_id(id):
     return resp
 
 def get_id_gasolineras():
-    """gets a list with all full stations id"""
-    id_gasolineras = []
-    for i,j in enumerate(get_response(build_request())):
-        id_gasolineras.append(list(get_response(build_request())[i].values())[0])
-    return id_gasolineras
+    """
+    uses the response from get_response and extracts data such as id, coordenades, type, etc. 
+    not all data types can be extracted from this view. So we return a list of ids and iterate over them later. 
+    """
+    ids = []
+    for line in get_response(build_request()):
+        id = line["id"]
+        ids.append(id)
 
-def get_df_row_by_id (gasolinera_id):
+    return ids
+
+def get_df_row_by_id(gasolinera_id):
     """gets a non-nested dafaframe of one row with all related petrol station values"""
     dicc = get_by_id(gasolinera_id)
     df_dicc = pd.DataFrame([dicc])
@@ -108,19 +117,20 @@ def get_df_row_by_id (gasolinera_id):
     return result
 
 
-def update_dataframe():
+def update_dataframe(id_gasolineras_list):
     """Creates dataframe if csv file does not exist and 
     updates existing dataframes with new data
     """
-    if os.path.isfile('bonarea_gasolineras.csv'):
-        with open('bonarea_gasolineras.csv','a', newline='') as csvfile:
-            for i in range(0,len(id_gasolineras)):
-                csvfile.write(get_df_row_by_id(id_gasolineras[i]).to_csv(index=False, header=False))
+    csv_name = 'bonarea_gasolineras.csv'
+    if os.path.isfile(csv_name):
+        with open(csv_name,'a', newline='') as csvfile:
+            for i in range(0,len(id_gasolineras_list)):
+                csvfile.write(get_df_row_by_id(id_gasolineras_list[i]).to_csv(index=False, header=False))
     else:
-        with open('bonarea_gasolineras.csv','a', newline='') as csvfile:
-            csvfile.write(get_df_row_by_id(id_gasolineras[0]).to_csv(index=False, header=True))
-            for i in range(1,len(id_gasolineras)):
-                csvfile.write(get_df_row_by_id(id_gasolineras[i]).to_csv(index=False, header=False))
+        with open(csv_name,'a', newline='') as csvfile:
+            csvfile.write(get_df_row_by_id(id_gasolineras_list[0]).to_csv(index=False, header=True))
+            for i in range(1,len(id_gasolineras_list)):
+                csvfile.write(get_df_row_by_id(id_gasolineras_list[i]).to_csv(index=False, header=False))
     return
 
 
@@ -196,7 +206,7 @@ def update_dataframe():
 #"""again use get all data by id, here we´re interested only in the price of different types of fuel
 #In the following code I´m attempting.. and getting the prices of gasoil A. This will have to be split into key - value pairs 
 #as in a dictionary or maybe saved as csv. From here we can go on and do a scheduled scraping
-"""
+#"""
 # for line in get_all_data_by_id():
 #     id = line["id"]
 #     prices = line["preus"]
