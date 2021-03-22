@@ -94,40 +94,40 @@ def get_by_id(id):
 #get_by_id("A")
 
 
-def get_all_data_by_id():
-    """
-    Maps the function get_by_id to the list of ids obtained from get_data()
-    The result is a list of json codes that help identifying different fields
-    """
-    return list(map(get_by_id, get_data()))
+# def get_all_data_by_id():
+#     """
+#     Maps the function get_by_id to the list of ids obtained from get_data()
+#     The result is a list of json codes that help identifying different fields
+#     """
+#     return list(map(get_by_id, get_data()))
   
-def get_object_data():
-    """
-    uses the return from get_all_data_by_id, extracts the fields from each item of the list.
-    note: prices are a list too, they will need to be worked on with regex or something similar
-    """
-    for line in get_all_data_by_id():
-        id = line["id"]
-        types = line["type"] 
-        street = line["address"]["street"]
-        num = line["address"]["number"]
-        city = line["address"]["city"]
-        phone = line["address"]["phone"]
-        postcode = line["address"]["postalCode"]
-        sa = line["address"]["raoSocial"]
-        hours = line["horari"]
-        lat = line["coordenades"]["latitude"]
-        lon = line["coordenades"]["longitude"]
-        closest = line["closest"]
-        prices = line["preus"]
-        services = line["serveis"]
-        print(prices)
+# def get_object_data():
+#     """
+#     uses the return from get_all_data_by_id, extracts the fields from each item of the list.
+#     note: prices are a list too, they will need to be worked on with regex or something similar
+#     """
+#     for line in get_all_data_by_id():
+#         id = line["id"]
+#         types = line["type"] 
+#         street = line["address"]["street"]
+#         num = line["address"]["number"]
+#         city = line["address"]["city"]
+#         phone = line["address"]["phone"]
+#         postcode = line["address"]["postalCode"]
+#         sa = line["address"]["raoSocial"]
+#         hours = line["horari"]
+#         lat = line["coordenades"]["latitude"]
+#         lon = line["coordenades"]["longitude"]
+#         closest = line["closest"]
+#         prices = line["preus"]
+#         services = line["serveis"]
+#         print(prices)
 
 
 
-"""again use get all data by id, here we´re interested only in the price of different types of fuel
-In the following code I´m attempting.. and getting the prices of gasoil A. This will have to be split into key - value pairs 
-as in a dictionary or maybe saved as csv. From here we can go on and do a scheduled scraping
+#"""again use get all data by id, here we´re interested only in the price of different types of fuel
+#In the following code I´m attempting.. and getting the prices of gasoil A. This will have to be split into key - value pairs 
+#as in a dictionary or maybe saved as csv. From here we can go on and do a scheduled scraping
 """
 # for line in get_all_data_by_id():
 #     id = line["id"]
@@ -137,7 +137,7 @@ as in a dictionary or maybe saved as csv. From here we can go on and do a schedu
 #             print(price)
 
 
-get_by_id("G027")
+#get_by_id("G027")
 
     
 
