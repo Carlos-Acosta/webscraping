@@ -29,7 +29,7 @@ options(width = 500)
 
 **INTRODUCCIÓN**
 
-Hacer introducción <p>
+Escribir introducción <p>
 
 
 
