@@ -1,12 +1,12 @@
 import requests
 import json
-
-"""driver = webdriver.Chrome(executable_path='/Users/olgagarcesciemerozum/chromedriver')
-driver.get("https://www.bonarea.com/ca/default/locate")
-print("learning to work with github")
-print("")
-place = driver.find_element_by_xpath('//*[@id="lblBotiga"]')
-place.click()"""
+import pandas as pd
+import re
+import copy
+import csv
+import os.path
+from pandas.io.json import json_normalize
+from datetime import datetime
 
 
 def build_request(list_of_types = ["super", "botiga", "benzinera", "bufet", "box", "cash", "diposit"]):
@@ -49,32 +49,6 @@ def get_response(request_str):
     resp = response.json()
     print(resp)
 
-#get_response(build_request())
-
-
-def get_data():
-    """
-    uses the response from get_response and extracts data such as id, coordenades, type, etc. 
-    not all data types can be extracted from this view. So we return a list of ids and iterate over them later. 
-    """
-    ids = []
-    for line in get_response(build_request()):
-        id = line["id"]
-        line["type"]
-        #line["phone"]
-        #line["phone2"]
-        line["coordenades"]["latitude"]
-        line["coordenades"]["longitude"]
-        line["address"]["street"]
-        line["address"]["number"]
-        line["address"]["city"]
-        line["address"]["province"]
-        line["closest"]
-        ids.append(id)
-
-    return ids
-
-
 
 def get_by_id(id):
     """
@@ -91,8 +65,101 @@ def get_by_id(id):
     resp = response.json()
     return resp
 
-#get_by_id("A")
+def get_id_gasolineras():
+    """gets a list with all full stations id"""
+    id_gasolineras = []
+    for i,j in enumerate(get_response(build_request())):
+        id_gasolineras.append(list(get_response(build_request())[i].values())[0])
+    return id_gasolineras
 
+def get_df_row_by_id (gasolinera_id):
+    """gets a non-nested dafaframe of one row with all related petrol station values"""
+    dicc = get_by_id(gasolinera_id)
+    df_dicc = pd.DataFrame([dicc])
+    df_dicc["Fecha"] = datetime.today().strftime('%d-%m-%Y')
+    df_dicc_address = pd.json_normalize(df_dicc["address"])
+    df_dicc_coordenades = pd.json_normalize(df_dicc["coordenades"])
+    column_names_preus = ["GASOIL A", "GASOLINA S/P 95", "GASOLINA S/P 98", "ADBLUE"]
+    df_preus = pd.DataFrame(columns = column_names_preus)
+    for i in  df_dicc["preus"][0]:
+        for j in column_names_preus:
+            if j in i:
+                df_preus.at[0, j] = i[-5:]
+    column_names_serveis = ['RENTADOR', 'CANVI', 'SUPER', 'LAVABO', 'PARKING', 'VENDING']
+    df_serveis = pd.DataFrame(columns = column_names_serveis)
+    for i in  df_dicc["serveis"][0]:
+        for j in column_names_serveis:
+            if j in i:
+                df_serveis.at[0, j] = 1
+    result = pd.concat([df_dicc, df_dicc_address, df_dicc_coordenades, df_serveis, df_preus], axis=1)
+    del result["tipology"]
+    del result["closest"]
+    del result["nearOpenText"]
+    del result["horari"]
+    del result["number"]
+    del result["province"]
+    del result["phone"]
+    del result["phone2"]
+    del result["fax"]
+    del result["address"]
+    del result["coordenades"]
+    del result["preus"]
+    del result["serveis"]
+    return result
+
+
+def update_dataframe():
+    if os.path.isfile('bonarea_gasolineras.csv'):
+        with open('bonarea_gasolineras.csv','a', newline='') as csvfile:
+            for i in range(0,len(id_gasolineras)):
+                csvfile.write(get_df_row_by_id(id_gasolineras[i]).to_csv(index=False, header=False))
+    else:
+        with open('bonarea_gasolineras.csv','a', newline='') as csvfile:
+            csvfile.write(get_df_row_by_id(id_gasolineras[0]).to_csv(index=False, header=True))
+            for i in range(1,len(id_gasolineras)):
+                csvfile.write(get_df_row_by_id(id_gasolineras[i]).to_csv(index=False, header=False))
+    return
+
+
+
+
+# PENDIENTE DE BORRAR UNA VEZ OK POR AMBOS
+
+
+# """driver = webdriver.Chrome(executable_path='/Users/olgagarcesciemerozum/chromedriver')
+# driver.get("https://www.bonarea.com/ca/default/locate")
+# print("learning to work with github")
+# print("")
+# place = driver.find_element_by_xpath('//*[@id="lblBotiga"]')
+# place.click()"""
+
+
+# def get_data():
+#     """
+#     uses the response from get_response and extracts data such as id, coordenades, type, etc. 
+#     not all data types can be extracted from this view. So we return a list of ids and iterate over them later. 
+#     """
+#     ids = []
+#     for line in get_response(build_request()):
+#         id = line["id"]
+#         line["type"]
+#         #line["phone"]
+#         #line["phone2"]
+#         line["coordenades"]["latitude"]
+#         line["coordenades"]["longitude"]
+#         line["address"]["street"]
+#         line["address"]["number"]
+#         line["address"]["city"]
+#         line["address"]["province"]
+#         line["closest"]
+#         ids.append(id)
+
+#     return ids
+
+
+
+#get_by_id("A")
+#get_response(build_request())
 
 # def get_all_data_by_id():
 #     """
@@ -123,8 +190,6 @@ def get_by_id(id):
 #         services = line["serveis"]
 #         print(prices)
 
-
-
 #"""again use get all data by id, here we´re interested only in the price of different types of fuel
 #In the following code I´m attempting.. and getting the prices of gasoil A. This will have to be split into key - value pairs 
 #as in a dictionary or maybe saved as csv. From here we can go on and do a scheduled scraping
@@ -138,7 +203,3 @@ def get_by_id(id):
 
 
 #get_by_id("G027")
-
-    
-
-
