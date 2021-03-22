@@ -109,6 +109,9 @@ def get_df_row_by_id (gasolinera_id):
 
 
 def update_dataframe():
+    """Creates dataframe if csv file does not exist and 
+    updates existing dataframes with new data
+    """
     if os.path.isfile('bonarea_gasolineras.csv'):
         with open('bonarea_gasolineras.csv','a', newline='') as csvfile:
             for i in range(0,len(id_gasolineras)):
