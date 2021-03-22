@@ -1,0 +1,166 @@
+---
+title: "**M2.851 - Tipología y ciclo de vida de los datos: Práctica 1: Web scraping**"
+author: "Olga Garcés Ciemerozum y Carlos Acosta Quintas"
+date: 'Abril 2021'
+output:
+  html_document:
+    highlight: default
+    number_sections: yes
+    theme: cosmo
+    toc: yes
+    toc_depth: 2
+
+---
+
+<style>
+body {
+text-align: justify}
+</style>
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.align="center")
+options(width = 500)
+
+```
+
+<br><br><br>
+
+**INTRODUCCIÓN**
+
+Hacer introducción <p>
+
+
+
+
+
+******
+# **Contexto**
+******
+
+<br><br>
+
+
+**1. Explicar en qué contexto se ha recolectado la información. Explique por qué el sitio web elegido proporciona dicha información**.
+
+
+
+
+
+******
+# **Título del dataset**
+******
+
+<br><br>
+
+
+**2. Definir un título para el dataset. Elegir un título que sea descriptivo.**.
+
+
+
+
+
+******
+# **Descripción del dataset**
+******
+
+<br><br>
+
+
+**3. Desarrollar una descripción breve del conjunto de datos que se ha extraído (es necesario que esta descripción tenga sentido con el título elegido).**.
+
+
+
+
+******
+# **Representación gráfica**
+******
+
+<br><br>
+
+
+**4. Presentar esquema o diagrama que identifique el dataset visualmente y el proyecto elegido.**
+
+
+
+
+
+******
+# **Contenido**
+******
+
+<br><br>
+
+
+**5. Explicar los campos que incluye el dataset, el periodo de tiempo de los datos y cómo se ha recogido.**
+
+
+******
+# **Agradecimientos**
+******
+
+<br><br>
+
+
+**6. Presentar al propietario del conjunto de datos. Es necesario incluir citas de análisis anteriores o, en caso de no haberlas, justificar esta búsqueda con análisis similares.**
+
+
+
+******
+# **Inspiración**
+******
+
+<br><br>
+
+
+**7. Explique por qué es interesante este conjunto de datos y qué preguntas se pretenden responder. Es necesario comparar con los análisis anteriores presentados en el apartado 6.**
+
+
+
+******
+# **Licencia**
+******
+
+<br><br>
+
+
+**8. Seleccione una de estas licencias para su dataset y explique el motivo de su selección:**
+
+
+<ul>
+<li>**Released Under CC0: Public Domain License**<p>
+<li>**Released Under CC BY-NC-SA 4.0 License**<p>
+<li>**Released Under CC BY-SA 4.0 License**<p>
+<li>**Database released under Open Database License, individual contents under Database Contents License**<p>
+<li>**Other (specified above)**<p>
+<li>**Unknown License**<p>
+</ul>
+
+******
+# **Código**
+******
+
+<br><br>
+
+
+**9. Adjuntar el código con el que se ha generado el dataset, preferiblemente en Python o, alternativamente, en R.**
+
+
+
+
+******
+# **Dataset**
+******
+
+<br><br>
+
+
+**10. Publicación del dataset en formato CSV en Zenodo (obtención del DOI) con una breve descripción.**
+
+
+
+******
+# **Referencias**
+******
+<br>
