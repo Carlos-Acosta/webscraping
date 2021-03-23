@@ -94,7 +94,7 @@ def get_df_row_by_id(gasolinera_id):
     for i in  df_dicc["preus"][0]:
         for j in column_names_preus:
             if j in i:
-                df_preus.at[0, j] = i[-5:].replace(",",".")
+                df_preus.at[0, j] = int(i[-5:].replace(',', ''))/1000
     column_names_serveis = ['RENTADOR', 'CANVI', 'SUPER', 'LAVABO', 'PARKING', 'VENDING']
     df_serveis = pd.DataFrame(columns = column_names_serveis)
     for i in  df_dicc["serveis"][0]:
