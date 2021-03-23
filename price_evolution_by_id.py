@@ -11,4 +11,4 @@ def evolucion_precio_gasolinera(csv, identificador, producto):
     plt.xticks(rotation=90)
     plt.show()
 
-evolucion_precio_gasolinera("bonarea_gasolineras.csv", "G058", "ADBLUE")
+evolucion_precio_gasolinera("bonarea_gasolineras_test.csv", "G058", "ADBLUE")
