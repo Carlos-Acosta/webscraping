@@ -20,28 +20,47 @@ from box_plot import box_price_all_id
 from price_evolution_by_id import evolucion_precio_gasolinera
 
 csv_file = "bonarea_gasolineras.csv"
+product_list = ["GASOIL A", "GASOLINA S/P 95", "GASOLINA S/P 98", "ADBLUE"]
+type_options = ["1","2","3"]
 
-
-petrol_station_id = input("Enter the petrol station Id:")
-petrol_product_type = input("Enter the petrol product(GASOIL A, GASOLINA S/P 95, GASOLINA S/P 98 o ADBLUE):")
 
 #Elaborar más las descripciones......
+petrol_station_id = str(input("Enter the petrol station Id:"))
+petrol_product_type = str(input("Enter the petrol product(GASOIL A, GASOLINA S/P 95, GASOLINA S/P 98 o ADBLUE):"))
+select_report = str(input("Enter type of report: 1, 2 o 3"))
 
 
-def report():
-    select_report = input("Enter type of report: 1, 2 o 3")
-    if select_report == 1:
-        #Report 1
-        return box_price_one_id(csv_file , petrol_station_id, petrol_product_type)
 
-    elif select_report == 2:
-        # Report 2
-        return box_price_all_id(csv_file , petrol_product_type)
 
-    elif select_report == 3:
-        # Report 3
-        return evolucion_precio_gasolinera(csv_file ,
-                                petrol_station_id,
-                                petrol_product_type)
 
-report()
+def report(type_report):
+    if petrol_station_id not in get_id_gasolineras():
+        result = print("Please, introduce correct Petrol Station Id!")
+    
+    elif petrol_product_type not in product_list:
+        result = print("Please, introduce correct Petrol product!")
+
+    elif select_report not in type_options:
+        result = print("Please, introduce correct type of report!")    
+    
+    else:
+        if (type_report == "1"):
+            #Report 1
+            result = box_price_one_id(csv_file,
+                                      petrol_station_id,
+                                      petrol_product_type)
+
+        elif (type_report == "2"):
+            # Report 2
+            result = box_price_all_id(csv_file,
+                                      petrol_product_type)
+
+        elif (type_report == "3"):
+            # Report 3
+            result = evolucion_precio_gasolinera(csv_file ,
+                                                 petrol_station_id,
+                                                 petrol_product_type)
+
+    return result
+
+report(select_report)
