@@ -15,21 +15,36 @@ from main_functions import get_by_id
 from main_functions import get_id_gasolineras
 from main_functions import get_df_row_by_id
 from main_functions import update_dataframe
-from box_plot import box_price_one_id
-from box_plot import box_price_all_id
-from price_evolution_by_id import evolucion_precio_gasolinera
+from plot_box import box_price_one_id
+from plot_box import box_price_all_id
+from plot_price_evolution_by_id import evolucion_precio_gasolinera
 
 csv_file = "bonarea_gasolineras.csv"
 product_list = ["GASOIL A", "GASOLINA S/P 95", "GASOLINA S/P 98", "ADBLUE"]
 type_options = ["1","2","3"]
 
 
-#Elaborar más las descripciones......
+
+print(get_id_gasolineras())
 petrol_station_id = str(input("Enter the petrol station Id:"))
+
+print()
+print("Product Types:")
+print("  GASOIL A")
+print("  GASOLINA S/P 95")
+print("  GASOLINA S/P 98")
+print("  ADBLUE")
+print()
+
 petrol_product_type = str(input("Enter the petrol product(GASOIL A, GASOLINA S/P 95, GASOLINA S/P 98 o ADBLUE):"))
+
+print()
+print("Type of report = 1 -> Box Plot for one selected Id")
+print("Type of report = 2 -> Box Plot for all Id")
+print("Type of report = 3 -> Line Plot showing price evolution for one selected Id")
+print()
+
 select_report = str(input("Enter type of report: 1, 2 o 3"))
-
-
 
 
 
