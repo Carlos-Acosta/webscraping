@@ -6,7 +6,7 @@ Esta práctica se ha realizado bajo el contexto de la asignatura _Tipología y c
 
 ## Miembros del equipo
 
-La actividad ha sido realizada por anera individual por **Teguayco Gutiérrez González**.
+La actividad ha sido realizada por anera individual por ****.
 
 ## Ficheros del código fuente
 
