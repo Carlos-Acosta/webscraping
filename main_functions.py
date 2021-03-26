@@ -106,7 +106,7 @@ def get_df_row_by_id(gasolinera_id):
                 df_serveis.at[0, j] = 1
     result = pd.concat([df_dicc, df_dicc_address, df_dicc_coordenades, df_serveis, df_preus], axis=1)
     del result["tipology"]
-    del result["closest"]
+    #del result["closest"]
     del result["nearOpenText"]
     del result["horari"]
     del result["number"]
