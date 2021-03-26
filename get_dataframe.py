@@ -11,10 +11,10 @@ from datetime import datetime
 
 from main_functions import build_request
 from main_functions import get_response
-from main_functions import get_by_id
-from main_functions import get_id_gasolineras
+from main_functions import get_data_by_id
+from main_functions import get_id_by_entityType
 from main_functions import get_df_row_by_id
 from main_functions import update_dataframe
 
 
-update_dataframe(get_id_gasolineras())
+update_dataframe(get_id_by_entityType("benzinera"))
