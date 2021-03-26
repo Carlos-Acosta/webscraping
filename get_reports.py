@@ -11,8 +11,8 @@ from datetime import datetime
 
 from main_functions import build_request
 from main_functions import get_response
-from main_functions import get_by_id
-from main_functions import get_id_gasolineras
+from main_functions import get_data_by_id
+from main_functions import get_id_by_entityType
 from main_functions import get_df_row_by_id
 from main_functions import update_dataframe
 from plot_box import box_price_one_id
@@ -25,7 +25,7 @@ type_options = ["1","2","3"]
 
 
 
-print(get_id_gasolineras())
+print(get_id_by_entityType())
 petrol_station_id = str(input("Enter the petrol station Id:"))
 
 print()
@@ -48,8 +48,9 @@ select_report = str(input("Enter type of report: 1, 2 o 3"))
 
 
 
+
 def report(type_report):
-    if petrol_station_id not in get_id_gasolineras():
+    if petrol_station_id not in get_id_by_entityType():
         result = print("Please, introduce correct Petrol Station Id!")
     
     elif petrol_product_type not in product_list:
