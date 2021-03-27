@@ -95,7 +95,7 @@ OLGA: Al hacer click en los distintos puntos que aparecen en el mapa, la página
 
 
 SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
-
+OLGA: Valores diarios del precio de los carburantes en gazolineras bonÀrea.
 
 ******
 # **Descripción del dataset**
@@ -129,13 +129,62 @@ SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
 <br><br>
 
 
-**5. Explicar los campos que incluye el dataset, el periodo de tiempo de los datos y cómo se ha recogido.**
+**5. Explicar los campos que incluye el dataset, el periodo de tiempo de los datos y cómo se ha recogido.**   
 
+CHECK HERE: El dataset XXXXXXXX XXXXXXx XXXXXXxxx contiene los precios diarios de los carburantes en distintas gasolineras de la red BonÀrea en el período de tiempo desde el 23 de marzo de 2021 hasta la fecha de entrega de la práctica.
+
+El dataset consta de 2 ficheros csv: 
+* precios_carburantes_bonarea contiene datos sobre los precios diarios de los carburantes en todas las gasolineras de la red. Los campos son:
+  - id - número identificador de la gasolinera
+  - latitude	- latitud  
+  - longitude	- longitud   
+  - minutsLatitude - latitud en minutos	  
+  - minutsLongitude	- longitud en minutos  
+  - GASOIL A  - precio diario de este tipo de combustible  
+  - GASOLINA S/P 95  - precio diario de este tipo de combustible  
+  - GASOLINA S/P 98  - precio diario de este tipo de combustible  
+  - ADBLUE  - precio diario de este tipo de combustible  
+
+* bonarea_gasolineras contiene la información de las gasolineras:  
+  - id - número identificador de la gasolinera	
+  - type - tipo de establecimiento de BonÀrea	 
+  - url	- url de la gasolinera   
+  - street - calle donde se ubica la gasolinera  
+  -	city - ciudad donde se ubica la gasolinera	 
+  - postalCode - código postal de la dirección de la gasolinera	  
+  - raoSocial	- razón social del establecimiento   
+  - latitude	- latitud  
+  - longitude	- longitud   
+  - minutsLatitude - latitud en minutos	  
+  - minutsLongitude	- longitud en minutos  
+  - RENTADOR	- tiene túnel de lavado de coches, booleano   
+  - CANVI	-  tienen cambio para dinero, booleano  
+  - SUPER	- tiene supermercado, booleano  
+  - LAVABO - tiene lavabo, booleano	 
+  - PARKING - tiene parking, booleano	 
+  - VENDING - tiene máquinas de vending, booleano  
+
+
+*Procedimiento de colección de datos*  
+
+La página permite al usuario seleccionar uno o varios tipos de establecimientos y muestra la ubicación sobre el mapa de todos establecimientos   
+de los tipos seleccionados. <p>  
+
+Al hacer click en los distintos puntos que aparecen en el mapa, la página realiza otra solicitud jquery para una instancia de establecimiento  
+específica y visualiza un recuadro con su información básica.  <p>
+
+Durante la interacción del usuario con la web, los datos se generan de forma dinámica: la web envía una solicitud jquery de información y  
+devuelve un conjunto de puntos en el mapa que cumplen con el criterio impuesto por el usuario. <p>
+
+Para realizar el webscraping se realiza en dos pasos:  
+* id gasolineras - encontramos el string que representa la solicitud jquery y usamos Postman (https://www.postman.com/) para obtener los campos `url`, `data`, `header`.  
+* detalle gasolineras - usamos una lista de ids de gasolineras para solicitar información detallada de las gasolineras.  
 
 ******
 # **Agradecimientos**
 ******
 
+Postman (https://www.postman.com/)  
 <br><br>
 
 
