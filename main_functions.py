@@ -74,67 +74,7 @@ def get_id_by_entityType(entity_type="benzinera"):
     return ids
 
 
-
-
 def get_df_row_by_id(gasolinera_id):
-    """gets a non-nested dafaframe of one row with all related petrol station values"""
-    dicc = get_data_by_id(gasolinera_id)
-    df_dicc = pd.DataFrame([dicc])
-    df_dicc["Fecha"] = datetime.today().strftime('%d-%m-%Y')
-    df_dicc["Dia_Semana"] = (datetime.today().weekday() + 1)
-    list_type = [1, 2, 3, 4, 5, 6, 7]
-    list_dias = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-    df_dicc["Dia_Semana"] = df_dicc["Dia_Semana"].replace(list_type, list_dias)
-    df_dicc_address = pd.json_normalize(df_dicc["address"])
-    df_dicc_coordenades = pd.json_normalize(df_dicc["coordenades"])
-    column_names_preus = ["GASOIL A", "GASOLINA S/P 95", "GASOLINA S/P 98", "ADBLUE"]
-    df_preus = pd.DataFrame(columns = column_names_preus)
-    for i in  df_dicc["preus"][0]:
-        for j in column_names_preus:
-            if j in i:
-                df_preus.at[0, j] = int(i[-5:].replace(',', ''))/1000
-    column_names_serveis = ['RENTADOR', 'CANVI', 'SUPER', 'LAVABO', 'PARKING', 'VENDING']
-    df_serveis = pd.DataFrame(columns = column_names_serveis)
-    for i in  df_dicc["serveis"][0]:
-        for j in column_names_serveis:
-            if j in i:
-                df_serveis.at[0, j] = 1
-    result = pd.concat([df_dicc, df_dicc_address, df_dicc_coordenades, df_serveis, df_preus], axis=1)
-    del result["tipology"]
-    del result["closest"]
-    del result["nearOpenText"]
-    del result["horari"]
-    del result["number"]
-    del result["province"]
-    del result["phone"]
-    del result["phone2"]
-    del result["fax"]
-    del result["address"]
-    del result["coordenades"]
-    del result["preus"]
-    del result["serveis"]
-    return result
-
-
-def update_dataframe(id_gasolineras_list):
-    """Creates dataframe if csv file does not exist and 
-    updates existing dataframes with new data
-    """
-    csv_name = 'bonarea_gasolineras.csv'
-    if os.path.isfile(csv_name):
-        with open(csv_name,'a', newline='') as csvfile:
-            for i in range(0,len(id_gasolineras_list)):
-                csvfile.write(get_df_row_by_id(id_gasolineras_list[i]).to_csv(index=False, header=False))
-    else:
-        with open(csv_name,'a', newline='') as csvfile:
-            csvfile.write(get_df_row_by_id(id_gasolineras_list[0]).to_csv(index=False, header=True))
-            for i in range(1,len(id_gasolineras_list)):
-                csvfile.write(get_df_row_by_id(id_gasolineras_list[i]).to_csv(index=False, header=False))
-    return
-
-
-
-def get_df_row_by_id1(gasolinera_id):
     """gets a non-nested dafaframe of one row with all related petrol station values"""
 
     dicc = get_data_by_id(gasolinera_id)
@@ -171,29 +111,32 @@ def get_df_row_by_id1(gasolinera_id):
                         df_serveis],
                         axis=1)
 
-    result_preus = pd.concat([df_dicc["id"],
+    result_preus = pd.concat([df_dicc[["id", "Fecha", "Dia_Semana"]],
                               df_dicc_coordenades,
                               df_preus],
                               axis=1)
 
-    return (result, result_preus)
+
+    result_all = pd.concat([result, df_preus])
+    return (result, result_preus, result_all)
 
 
-def update_dataframe1(entity_type = "benzinera"):
+def update_dataframe(entity_type = "benzinera"):
     """Creates dataframe if csv file does not exist and 
     updates existing dataframes with new data
     """
+
+    # eliminar el 1 del nombre del csv
     id_gasolineras_list = get_id_by_entityType(entity_type)
     csv_name = 'bonarea_gasolineras1.csv'
     if os.path.isfile(csv_name):
-        with open(csv_name,'a', newline='') as csvfile:
-            for i in range(0,len(id_gasolineras_list)):
-                csvfile.write(get_df_row_by_id1(id_gasolineras_list[i])[0].to_csv(index=False, header=False))
+        pass
     else:
         with open(csv_name,'a', newline='') as csvfile:
-            csvfile.write(get_df_row_by_id1(id_gasolineras_list[0])[0].to_csv(index=False, header=True))
+            csvfile.write(get_df_row_by_id(id_gasolineras_list[0])[0].to_csv(index=False, header=True))
             for i in range(1,len(id_gasolineras_list)):
-                csvfile.write(get_df_row_by_id1(id_gasolineras_list[i])[0].to_csv(index=False, header=False))
+                csvfile.write(get_df_row_by_id(id_gasolineras_list[i])[0].to_csv(index=False, header=False))
+        
     return
 
 
@@ -205,10 +148,27 @@ def update_prices(entity_type = "benzinera"):
     if os.path.isfile(csv_name):
         with open(csv_name,'a', newline='') as csvfile:
             for i in range(0,len(id_gasolineras_list)):
-                csvfile.write(get_df_row_by_id1(id_gasolineras_list[i])[1].to_csv(index=False, header=False))
+                csvfile.write(get_df_row_by_id(id_gasolineras_list[i])[1].to_csv(index=False, header=False))
     else:
         with open(csv_name,'a', newline='') as csvfile:
-            csvfile.write(get_df_row_by_id1(id_gasolineras_list[0])[1].to_csv(index=False, header=True))
+            csvfile.write(get_df_row_by_id(id_gasolineras_list[0])[1].to_csv(index=False, header=True))
             for i in range(1,len(id_gasolineras_list)):
-                csvfile.write(get_df_row_by_id1(id_gasolineras_list[i])[1].to_csv(index=False, header=False))
+                csvfile.write(get_df_row_by_id(id_gasolineras_list[i])[1].to_csv(index=False, header=False))
+    return
+
+
+def update_data_and_prices(entity_type = "benzinera"):
+    """Creates dataframe with prices of fuel
+    """
+    id_gasolineras_list = get_id_by_entityType(entity_type)
+    csv_name = 'bonarea_gasolineras_data_and_prices.csv'
+    if os.path.isfile(csv_name):
+        with open(csv_name,'a', newline='') as csvfile:
+            for i in range(0,len(id_gasolineras_list)):
+                csvfile.write(get_df_row_by_id(id_gasolineras_list[i])[2].to_csv(index=False, header=False))
+    else:
+        with open(csv_name,'a', newline='') as csvfile:
+            csvfile.write(get_df_row_by_id(id_gasolineras_list[0])[2].to_csv(index=False, header=True))
+            for i in range(1,len(id_gasolineras_list)):
+                csvfile.write(get_df_row_by_id(id_gasolineras_list[i])[2].to_csv(index=False, header=False))
     return

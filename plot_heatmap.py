@@ -3,6 +3,7 @@ import pandas as pd
 
 gmaps.configure(api_key='AIzaSyDAQtZoSJcyMCoLMBIutENA3WrMLf3YF3w') # Fill in with your API key
 
+# Hay que cambiar al csv 'bonarea_gasolineras_prices.csv'
 df = pd.read_csv("bonarea_gasolineras.csv")
 normalized_price=(df['GASOIL A']-df['GASOIL A'].min())/(df['GASOIL A'].max()-df['GASOIL A'].min())
 
