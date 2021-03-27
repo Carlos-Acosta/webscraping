@@ -19,6 +19,7 @@ from plot_box import box_price_one_id
 from plot_box import box_price_all_id
 from plot_price_evolution_by_id import evolucion_precio_gasolinera
 
+# Hay que cambiar a 'bonarea_gasolineras_prices.csv'
 csv_file = "bonarea_gasolineras.csv"
 product_list = ["GASOIL A", "GASOLINA S/P 95", "GASOLINA S/P 98", "ADBLUE"]
 type_options = ["1","2","3"]

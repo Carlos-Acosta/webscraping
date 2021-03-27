@@ -18,3 +18,4 @@ from main_functions import update_dataframe
 
 
 update_dataframe(get_id_by_entityType("benzinera"))
+
