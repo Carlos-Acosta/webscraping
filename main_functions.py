@@ -117,7 +117,13 @@ def get_df_row_by_id(gasolinera_id):
                               axis=1)
 
 
-    result_all = pd.concat([result, df_preus])
+    result_all = pd.concat([df_dicc[["id", "Fecha", "Dia_Semana", "type", "url"]],
+                            df_dicc_address[["street", "city", "postalCode", "raoSocial"]],
+                            df_dicc_coordenades,
+                            df_serveis,
+                            df_preus],
+                            axis=1)
+
     return (result, result_preus, result_all)
 
 
