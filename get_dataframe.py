@@ -30,3 +30,4 @@ update_data_and_prices("benzinera")
 update_dataframe("benzinera")
 
 # test
+# test 2
