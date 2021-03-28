@@ -128,7 +128,7 @@ def update_dataframe(entity_type = "benzinera"):
 
     # eliminar el 1 del nombre del csv
     id_gasolineras_list = get_id_by_entityType(entity_type)
-    csv_name = 'bonarea_gasolineras1.csv'
+    csv_name = 'bonarea_gasolineras.csv'
     if os.path.isfile(csv_name):
         pass
     else:
