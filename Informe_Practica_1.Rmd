@@ -1,7 +1,7 @@
 ---
-title: "**M2.851 - Tipología y ciclo de vida de los datos: Práctica 1: Web scraping**"
-author: "Olga Garcés Ciemerozum y Carlos Acosta Quintas"
-date: 'Abril 2021'
+title: '**M2.851 - Tipología y ciclo de vida de los datos: Práctica 1: Web scraping**'
+author: "Olga Garcés Ciemerozum  y  Carlos Acosta Quintas"
+date: "Abril 2021"
 output:
   html_document:
     highlight: default
@@ -9,7 +9,12 @@ output:
     theme: cosmo
     toc: yes
     toc_depth: 2
-
+  word_document:
+    toc: yes
+    toc_depth: '2'
+  pdf_document:
+    toc: yes
+    toc_depth: '2'
 ---
 
 <style>

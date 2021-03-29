@@ -33,12 +33,33 @@ type_options = ["1","2","3","4"]
 
 api = "AIzaSyDAQtZoSJcyMCoLMBIutENA3WrMLf3YF3w"
 
+# Inicialización id gasolinera
+petrol_station_id = "A"
 
-print(get_id_by_entityType())
-petrol_station_id = str(input("Enter the petrol station Id:")).upper()
+print("Following reports are currently available: ")
+print()
+print("Type of report = 1 -> Box Plot for one selected Id")
+print("Type of report = 2 -> Box Plot for all Id")
+print("Type of report = 3 -> Line Plot showing price evolution for one selected Id")
+print("Type of report = 4 -> Geographical HeatMap with the prices by product of all petrol stations: ")
+print()
 
-print(petrol_station_id)
+select_report = str(input("Enter type of report you want to create: 1, 2, 3 o 4"))
 
+if select_report == "4":
+    pass
+else:
+    print()
+    print()
+    print("These are the available Petrol Station Id: ")
+    print()
+    print()
+    print(get_id_by_entityType())
+    petrol_station_id = str(input("Enter the petrol station Id:")).upper()
+
+print()
+print()
+print("Following petrol products are currently available: ")
 print()
 print("Product Types:")
 print("  -> GASOIL A")
@@ -48,19 +69,6 @@ print("  -> ADBLUE")
 print()
 
 petrol_product_type = str(input("Enter the petrol product(GASOIL A, GASOLINA S/P 95, GASOLINA S/P 98 o ADBLUE):")).upper()
-
-print(petrol_product_type)
-
-print()
-print("Type of report = 1 -> Box Plot for one selected Id")
-print("Type of report = 2 -> Box Plot for all Id")
-print("Type of report = 3 -> Line Plot showing price evolution for one selected Id")
-print("Type of report = 4 -> Geographical HeatMap with the prices by product of all petrol stations: ")
-print()
-
-select_report = str(input("Enter type of report: 1, 2, 3 o 4"))
-
-
 
 
 def report(type_report):
