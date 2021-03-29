@@ -57,5 +57,6 @@ El programa puede generar 4 tipos de gráficas:<p>
 3. Lawson, R. (2015). _Web Scraping with Python_. Packt Publishing Ltd. Chapter 5. Dynamic Data.  
 
 ## License
+
 ///>>> PENDIENTE DE DECISION
 
