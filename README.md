@@ -35,11 +35,10 @@ El archivo requierements.txt muestra las librerías específicas que son requeri
 
 Para poder ejecutar directamente este proyecto en tu máquina local, deberás clonar todo el repositorio mediante su dirección url.<p>
 Una vez clonado, para generar los datasets, se debe ejecutar el archivo **get_dataframe.py** y seguir las instrucciones.<p>
-El programa puede generar 3 tipos de datasets en formato csv:<p>
+El programa puede generar 2 tipos de datasets en formato csv:<p>
 
-* Dataset estático con los datos descriptivos de las diferentes gasolineras.<p>
-* Dataset actualizable con los datos de los precios por producto diarios de las diferentes gasolineras.<p>
-* Dataset completo (combinación de los dos primeros datasets).<p>
+* Dataset en 2 ficheros csv: csv con los datos de las diferentes gasolineras (estático). y csv actualizable con los datos de los precios por producto diarios de las diferentes gasolineras.<p>
+* Dataset completo en un fichero csv (combinación de los dos primeros datasets).<p>
 
 Para ejecutar las aplicaciones existentes en el proyecto, se debe ejecutar **get_reports.py** y seguir las instrucciones.
 
@@ -55,6 +54,7 @@ El programa puede generar 4 tipos de gráficas:<p>
 
 1. Lawson, R. (2015). _Web Scraping with Python_. Packt Publishing Ltd. Chapter 2. Scraping the Data.
 2. Mitchel, R. (2015). _Web Scraping with Python: Collecting Data from the Modern Web_. O'Reilly Media, Inc. Chapter 1. Your First Web Scraper.
+3. Lawson, R. (2015). _Web Scraping with Python_. Packt Publishing Ltd. Chapter 5. Dynamic Data.  
 
 ## License
 

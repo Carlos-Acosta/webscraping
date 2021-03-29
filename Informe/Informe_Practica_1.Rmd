@@ -3,18 +3,18 @@ title: '**M2.851 - Tipología y ciclo de vida de los datos: Práctica 1: Web scr
 author: "Olga Garcés Ciemerozum  y  Carlos Acosta Quintas"
 date: "Abril 2021"
 output:
+  pdf_document:
+    toc: yes
+    toc_depth: '2'
+  word_document:
+    toc: yes
+    toc_depth: '2'
   html_document:
     highlight: default
     number_sections: yes
     theme: cosmo
     toc: yes
     toc_depth: 2
-  word_document:
-    toc: yes
-    toc_depth: '2'
-  pdf_document:
-    toc: yes
-    toc_depth: '2'
 ---
 
 <style>
@@ -136,14 +136,13 @@ Hay que tener en cuenta **dos puntos claves** relacionados con la interacción d
 **2. Definir un título para el dataset. Elegir un título que sea descriptivo.**.
 
 
-El proyecto puede generar 3 tipos de datasets en formato csv:<p>
+El proyecto puede generar el dataset en dos modalidades:<p>
 
 <br>
 
 <ul>
-<li>**1. Dataset estático con los datos descriptivos de las diferentes gasolineras.**<p>
-<li>**2. Dataset actualizable con los datos de los precios por producto diarios de las diferentes gasolineras.**<p>
-<li>**3. Dataset completo (combinación de los dos primeros datasets)**<p>
+<li>**1. Dataset en dos archivos csv:** csv con datos de las gasolineras y csv actualizable con histórico de precios diarios de las diferentes gasolineras.<p>
+<li>**3. Dataset completo en un archivo csv** (combinación de los dos primeros datasets)**<p>
 </ul>
 
 <br>
