@@ -25,7 +25,6 @@ La actividad ha sido realizada por: **Olga Garcés Ciemerozum** y **Carlos Acost
 * **plot_heatmap.py**: Contiene la implementación de la aplicación para crear un heatmap geográfico de los precios según el producto escogido.
 
 
-
 ## Prerequesitos
 
 Este projecto se ha implementado en Python 3.8.8. Se recomienda esta versión o posteriores para evitar incompatibilidades con el código fuente.<p>

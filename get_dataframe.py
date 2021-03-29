@@ -20,7 +20,6 @@ from main_functions import update_data_and_prices
 from main_functions import update_dataframe
 
 
-
 type_options = ["1","2","3"]
 
 print("In order to optimize memory and storage, there are several options to get bonarea dataframe.")

@@ -22,7 +22,6 @@ from plot_heatmap import heatmap
 from plot_price_evolution_by_id import evolucion_precio_gasolinera
 
 
-
 # Argumentos de las funciones para obtener los informes
 csv_file = 'bonarea_gasolineras_prices.csv'
 product_list = ["GASOIL A", "GASOLINA S/P 95", "GASOLINA S/P 98", "ADBLUE"]

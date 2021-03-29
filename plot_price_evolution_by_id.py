@@ -2,7 +2,6 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-
 def evolucion_precio_gasolinera(csv, identificador, producto):
     df = pd.read_csv(csv)
     df_id = df.loc[df['id'] == identificador]

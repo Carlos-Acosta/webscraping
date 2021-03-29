@@ -1,7 +1,6 @@
 import gmaps
 import pandas as pd
 
-
 def heatmap(api, csv_file, product_list):
     gmaps.configure(api_key=api) 
     df = pd.read_csv('bonarea_gasolineras_prices.csv')

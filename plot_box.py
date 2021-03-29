@@ -3,7 +3,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
-
 def box_price_one_id(csv, identificador, producto):
     df = pd.read_csv(csv)
     df_id = df.loc[df['id'] == identificador]

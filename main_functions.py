@@ -181,3 +181,4 @@ def update_data_and_prices(entity_type = "benzinera"):
             for i in range(1,len(id_gasolineras_list)):
                 csvfile.write(get_df_row_by_id(id_gasolineras_list[i])[2].to_csv(index=False, header=False))
     return
+    
