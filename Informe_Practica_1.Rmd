@@ -28,9 +28,13 @@ options(width = 500)
 
 **INTRODUCCIÓN**
 
-El presente informe forma parte de la primera práctica de la asignatura M2.851 - Tipología y ciclo de vida de los datos del Máster Universitario en Ciencia de Datos impartido por la Universitat Oberta de Catalunya.<p>.
+<br>
+El presente informe forma parte de la primera práctica de la asignatura M2.851 - Tipología y ciclo de vida de los datos del Máster Universitario en Ciencia de Datos impartido por la Universitat Oberta de Catalunya.<p>
+<br>
 
 En esta práctica se realizarán técnicas de Web scraping aplicadas a una Web en concreto y se analizarán dichos datos para extraer información relevante y útil.<p>
+
+<br>
 
 A su vez, se entregará, junto con la presente memoria, una serie de archivos con el código necesario para la realización de dicho Web scraping y varios juegos de datos reales y actualizados con el que el usuario podrá realizar diferentes estudios analíticos a posteriori.<p> 
 
@@ -48,9 +52,11 @@ A su vez, se entregará, junto con la presente memoria, una serie de archivos co
 
 <br>
 
-## Contexto en la recolección de la información.<p>
+**Contexto en la recolección de la información.**<p>
 
+<br>
 La página web seleccionada para realizar las técnicas de Web scraping es: https://www.bonarea.com/ <p>
+<br>
 
 
 BonÀrea es empresa con una amplia experiencia en el sector agroalimentario, donde su principal negocio se desarrolla en actividades ganaderas, industriales y comerciales con el fin de poder llegar al consumidor sin intermediarios. <p>
@@ -61,31 +67,58 @@ Las gasolineras bonÀrea son conocidas por su precio económico debido a sus red
 
 Para ésta práctica, se ha decidido hacer un estudio geográfico y temporal de los precios de las gasolineras de bonÀrea Energía, para determinar, no solamente las variaciones diarias de los precios de los diferentes productos, sinó también realizar un registro de las economías de escala asociadas a cada gasolinera (servicios complementarios aportados por cada gasolinera).<p> 
 
+<br>
 
-*Información extraída del sitio web.*<p>
+**Información extraída del sitio web.**<p>
 
+<br>
 El dominio www.bonarea.com aporta una web dinámica que referencia a todas las divisiones de negocio del grupo, implementando diferentes esquemas de datos para que la experiencia del usuario final a nivel de visualización de la información sea clara y concisa.<p>
 
+<br>
+
 <p align="center">
-  <img src="./images/web1.jpg">
+  <img src="./images/web_general.jpg">
 </p>
 
+<br>
 
-En el apartado de los establecimientos, y en particular en el de las gasolineras, la página web aporta diferentes datos sobre ellas, tando a nivel geográfico mediante un mapa interactivo para que el usuario sepa en todo momento dónde está la gasolinara más cercana, como a nivel económico (se muestran los precios de los diferentes carburantes disponibles en cada una de ellas).<p>
+En el apartado de los establecimientos, y en particular en el de las gasolineras, la página web aporta diferentes datos sobre ellas, tanto a nivel geográfico mediante un mapa interactivo para que el usuario sepa en todo momento dónde está la gasolinara más cercana, como a nivel económico (se muestran los precios de los diferentes carburantes disponibles en cada una de ellas).<p>
+
+La página permite al usuario seleccionar uno o varios tipos de establecimientos y muestra la ubicación sobre el mapa de todos establecimientos de los tipos seleccionados.<p>
+
+<br>
+
+<p align="center">
+  <img src="./images/web_mapa_gasolineras.jpg">
+</p>
+
+<br>
+
+Además, haciendo click en el icono **"+ info"**, cada gasolinera dispone de una página web anidada para que el usuario pueda tener información adicional como el horario de apertura, dirección , teléfono, etc. de cada una de los establecimientos.<p>
 
 
 
+<br>
 
-Cada gasolinera dispone de una página web anidada para que el usuario pueda tener información adicional como el horario de apertura, dirección , teléfono, etc. de cada una de los establecimientos.<p>
+<p align="center">
+  <img src="./images/web_gasolinera_detalle.jpg">
+</p>
 
-En definitiva, el sitio web proporciona dicha información con solamente un motivo: conseguir el compromiso y la fidelización del cliente a una página web práctica y bien diseñada, que ayuda a obtener una información "a la carte" útil.<p>
-
-OLGA: La página permite al usuario seleccionar uno o varios tipos de establecimientos y muestra la ubicación sobre el mapa de todos establecimientos de los tipos seleccionados. <p>
-OLGA: Durante la interacción del usuario con la web, los datos se genera de forma dinámica: la web envía una solicitud jquery de información y devuelve un conjunto de puntos en el mapa que cumplen con el criterio impuesto por el usuario. <p>
-OLGA: Al hacer click en los distintos puntos que aparecen en el mapa, la página realiza otra solicitud jquery para una instancia de establecimiento específica y visualiza un recuadro con su información básica.  <p>
 <br>
 
 
+En definitiva, el sitio web proporciona dicha información con solamente un motivo: conseguir el compromiso y la fidelización del cliente a una página web práctica y bien diseñada, que ayuda a obtener una información "a la carte" útil.<p>
+
+
+<br>
+Hay que tener en cuenta **dos puntos claves** relacionados con la interacción del usuario:<p>
+
+<br>
+-Durante la interacción del usuario con la web, los datos se generan de forma dinámica: la web envía una solicitud jquery de información y devuelve un conjunto de puntos en el mapa que cumplen con el criterio impuesto por el usuario. <p>
+
+<br>
+- Al hacer click en los distintos puntos que aparecen en el mapa, la página realiza otra solicitud jquery para una instancia de establecimiento específica y visualiza un recuadro con su información básica.  <p>
+<br>
 
 
 ******
@@ -98,8 +131,30 @@ OLGA: Al hacer click en los distintos puntos que aparecen en el mapa, la página
 **2. Definir un título para el dataset. Elegir un título que sea descriptivo.**.
 
 
-SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
-OLGA: Valores diarios del precio de los carburantes en gazolineras bonÀrea.
+El proyecto puede generar 3 tipos de datasets en formato csv:<p>
+
+<br>
+
+<ul>
+<li>**1. Dataset estático con los datos descriptivos de las diferentes gasolineras.**<p>
+<li>**2. Dataset actualizable con los datos de los precios por producto diarios de las diferentes gasolineras.**<p>
+<li>**3. Dataset completo (combinación de los dos primeros datasets)**<p>
+</ul>
+
+<br>
+
+Por tanto, habrá 3 títulos propuestos para los diferentes datasets. Los títulos se muestran en orden de aparición en referencia a la anterior lista:<p>
+
+<br>
+
+<ul>
+<li>**1.   "Información descriptiva de las gasolineras bonÀrea."**<p>
+<li>**2.   "Valores diarios del precio de los carburantes en gasolineras bonÀrea."**<p>
+<li>**3.   "Gasolineras bonÀrea: Información descriptiva y valores diarios del precio de los carburantes."**<p>
+</ul>
+
+
+<br>
 
 ******
 # **Descripción del dataset**
@@ -110,8 +165,9 @@ OLGA: Valores diarios del precio de los carburantes en gazolineras bonÀrea.
 
 **3. Desarrollar una descripción breve del conjunto de datos que se ha extraído (es necesario que esta descripción tenga sentido con el título elegido).**.
 
+///>>> PENDIENTE DE ELABORACION
 
-
+<br>
 
 ******
 # **Representación gráfica**
@@ -122,9 +178,9 @@ OLGA: Valores diarios del precio de los carburantes en gazolineras bonÀrea.
 
 **4. Presentar esquema o diagrama que identifique el dataset visualmente y el proyecto elegido.**
 
+///>>> PENDIENTE DE ELABORACION
 
-
-
+<br>
 
 ******
 # **Contenido**
@@ -135,90 +191,128 @@ OLGA: Valores diarios del precio de los carburantes en gazolineras bonÀrea.
 
 **5. Explicar los campos que incluye el dataset, el periodo de tiempo de los datos y cómo se ha recogido.**   
 
-El dataset contiene los precios diarios de los carburantes en distintas gasolineras de la red BonÀrea en el período de tiempo desde el 23 de marzo de 2021 hasta la fecha de entrega de la práctica.  
+<br>
+El dataset contiene los precios diarios de los carburantes en distintas gasolineras de la red BonÀrea en el período de tiempo desde: <p>
 
-El dataset XXXXXXXX XXXXXXx XXXXXXxxx puede ser generado en dos modalidades:  
-* Dos ficheros csv:  
-  - bonarea_gasolineras_prices.csv - datos históricos del precio de los carburantes por gasolinera   
-  - bonarea_gasolineras.csv - datos de las gasolineras 
+<br>
 
-* Un fichero csv:  
-  - bonarea_gasolineras_data_and_prices.csv - datos históricos del precio de los carburantes por gasolinera con información detallada de cada gasolinera 
+23 de marzo de 2021 hasta la fecha de entrega de la práctica.<p>
+
+<br>
+
+Los diferentes datasets pueden ser generados en dos modalidades:<p>
+
+<br>
+
+**Dos ficheros csv**:<p>
+<br>
+**'bonarea_gasolineras_prices.csv'** - datos históricos del precio de los carburantes por gasolinera<p> 
+**'bonarea_gasolineras.csv'** - datos de las gasolineras<p>
+<br>
+
+**Un fichero csv**:  
+<br>
+**'bonarea_gasolineras_data_and_prices.csv'** - datos históricos del precio de los carburantes por gasolinera con información detallada de cada gasolinera.<p>
+
+<br>
+-> **'bonarea_gasolineras_prices.csv'**<p>
+
+<br>
+
+<ul>
+<li>**id** - número identificador de la gasolinera.<p>
+<li>**Fecha** - fecha<p>
+<li>**Dia_Semana** - día de la semana<p>
+<li>**latitude** - latitud <p>
+<li>**longitude** - longitud <p>
+<li>**minutsLatitude** - latitud en minutos	<p>
+<li>**minutsLongitude** - longitud en minutos  <p>
+<li>**GASOIL A** - precio diario de este tipo de combustible<p>
+<li>**GASOLINA S/P 95** - precio diario de este tipo de combustible<p>
+<li>**GASOLINA S/P 98** - precio diario de este tipo de combustible<p>
+<li>**ADBLUE** - precio diario de este tipo de combustible<p>
+</ul>
+
+<br>
+
+ 
+-> **'bonarea_gasolineras.csv'**
+<br>
+
+<ul>
+<li>**id** - número identificador de la gasolinera<p>
+<li>**type** - tipo de establecimiento de BonÀrea	<p>
+<li>**url**	- url de la gasolinera<p>
+<li>**street** - calle donde se ubica la gasolinera <p>
+<li>**city** - ciudad donde se ubica la gasolinera<p>
+<li>**postalCode** - código postal de la dirección de la gasolinera	<p>
+<li>**raoSocial**	- razón social del establecimiento <p>
+<li>**latitude** - latitud <p>
+<li>**longitude** - longitud <p>
+<li>**minutsLatitude** - latitud en minutos<p>
+<li>**minutsLongitude** - longitud en minutos<p>
+<li>**RENTADO**R	- tiene túnel de lavado de coches (1 - sí)<p>
+<li>**CANVI** - tiene cambio para dinero, booleano  (1 - sí)<p>
+<li>**SUPER**	- tiene supermercado (1 - sí)<p>
+<li>**LAVABO** - tiene lavabo (1 - sí)<p>
+<li>**PARKING** - tiene parking (1 - sí)<p>
+<li>**VENDING** - tiene vending (1 - sí)<p>
+</ul>
+
+<br>
+-> **'bonarea_gasolineras_data_and_prices.csv'**
+
+<br>
+<ul>
+<li>**id** - número identificador de la gasolinera.<p>
+<li>**Fecha** - fecha**<p>
+<li>**Dia_Semana** - día de la semana**<p>
+<li>**type** - tipo de establecimiento de BonÀrea	<p>
+<li>**url**	- url de la gasolinera**<p>
+<li>**street** - calle donde se ubica la gasolinera <p>
+<li>**city** - ciudad donde se ubica la gasolinera<p>
+<li>**postalCode** - código postal de la dirección de la gasolinera	<p>
+<li>**raoSocial**	- razón social del establecimiento <p>
+<li>**latitude** - latitud <p>
+<li>**longitude** - longitud <p>
+<li>**minutsLatitude** - latitud en minutos<p>
+<li>**minutsLongitude** - longitud en minutos<p>
+<li>**RENTADOR**	- tiene túnel de lavado de coches (1 - sí)<p>
+<li>**CANVI** - tiene cambio para dinero, booleano  (1 - sí)<p>
+<li>**SUPER**	- tiene supermercado (1 - sí)<p>
+<li>**LAVABO** - tiene lavabo (1 - sí)<p>
+<li>**PARKING** - tiene parking (1 - sí)<p>
+<li>**VENDING** - tiene vending (1 - sí)<p>
+<li>**GASOIL A** - precio diario de este tipo de combustible**<p>
+<li>**GASOLINA S/P 95** - precio diario de este tipo de combustible<p>
+<li>**GASOLINA S/P 98** - precio diario de este tipo de combustible<p>
+<li>**ADBLUE** - precio diario de este tipo de combustible<p>
+</ul>
+<br>
+
+**Procedimiento de colección de datos**
+
+La página permite al usuario seleccionar uno o varios tipos de establecimientos y muestra la ubicación sobre el mapa de todos establecimientos de los tipos seleccionados. <p>
+
+<br>
+Al hacer click en los distintos puntos que aparecen en el mapa, la página realiza otra solicitud jquery para una instancia de establecimiento específica y visualiza un recuadro con su información básica.<p>
+
+<br>
+Durante la interacción del usuario con la web, los datos se generan de forma dinámica: la web envía una solicitud jquery de información y devuelve un conjunto de puntos en el mapa que cumplen con el criterio impuesto por el usuario. <p>
+
+<br>
+Para realizar el webscraping se realiza en dos pasos:
 
 
-bonarea_gasolineras_prices.csv
-* id - número identificador de la gasolinera
-* Fecha - fecha
-* Dia_Semana - día de la semana
-* latitude - latitud  
-* longitude - longitud 
-* minutsLatitude - latitud en minutos	
-* minutsLongitude - longitud en minutos  
-* GASOIL A - precio diario de este tipo de combustible
-* GASOLINA S/P 95 - precio diario de este tipo de combustible
-* GASOLINA S/P 98 - precio diario de este tipo de combustible
-* ADBLUE - precio diario de este tipo de combustible
-
-bonarea_gasolineras.csv
-* id - número identificador de la gasolinera
-* type - tipo de establecimiento de BonÀrea	 
-* url	- url de la gasolinera   
-* street - calle donde se ubica la gasolinera  
-* city - ciudad donde se ubica la gasolinera
-* postalCode - código postal de la dirección de la gasolinera	 
-* raoSocial	- razón social del establecimiento   
-* latitude - latitud  
-* longitude - longitud 
-* minutsLatitude - latitud en minutos	
-* minutsLongitude - longitud en minutos  
-* RENTADOR	- tiene túnel de lavado de coches (1 - sí)
-* CANVI - tienen cambio para dinero, booleano  (1 - sí)
-* SUPER	- tiene supermercado (1 - sí)
-* LAVABO - tiene lavabo (1 - sí)
-* PARKING - tiene parking (1 - sí)
-* VENDING - tiene vending (1 - sí)
-
-bonarea_gasolineras_data_and_prices.csv
-* id - número identificador de la gasolinera
-* Fecha - fecha
-* Dia_Semana - día de la semana
-* type - tipo de establecimiento de BonÀrea	 
-* url	- url de la gasolinera   
-* street - calle donde se ubica la gasolinera  
-* city - ciudad donde se ubica la gasolinera
-* postalCode - código postal de la dirección de la gasolinera	 
-* raoSocial	- razón social del establecimiento   
-* latitude - latitud  
-* longitude - longitud 
-* minutsLatitude - latitud en minutos	
-* minutsLongitude - longitud en minutos  
-* RENTADOR	- tiene túnel de lavado de coches (1 - sí)
-* CANVI - tienen cambio para dinero  (1 - sí)
-* SUPER	- tiene supermercado (1 - sí)
-* LAVABO - tiene lavabo (1 - sí)
-* PARKING - tiene parking (1 - sí)
-* VENDING - tiene vending (1 - sí)
-* GASOIL A - precio diario de este tipo de combustible
-* GASOLINA S/P 95 - precio diario de este tipo de combustible
-* GASOLINA S/P 98 - precio diario de este tipo de combustible
-* ADBLUE - precio diario de este tipo de combustible
+<ul>
+<li>**Id gasolineras** - encontramos el string que representa la solicitud jquery y usamos Postman (https://www.postman.com/) para obtener los campos `url`, `data`, `header`.<p>
+<li>**Descripción detalle de las gasolineras** - usamos una lista de ids de gasolineras para solicitar información detallada de las gasolineras.<p>
+</ul>
 
 
 
-*Procedimiento de colección de datos*  
 
-La página permite al usuario seleccionar uno o varios tipos de establecimientos y muestra la ubicación sobre el mapa de todos establecimientos   
-de los tipos seleccionados. <p>  
-
-Al hacer click en los distintos puntos que aparecen en el mapa, la página realiza otra solicitud jquery para una instancia de establecimiento  
-específica y visualiza un recuadro con su información básica.  <p>
-
-Durante la interacción del usuario con la web, los datos se generan de forma dinámica: la web envía una solicitud jquery de información y  
-devuelve un conjunto de puntos en el mapa que cumplen con el criterio impuesto por el usuario. <p>
-
-Para realizar el webscraping se realiza en dos pasos:  
-* id gasolineras - encontramos el string que representa la solicitud jquery y usamos Postman (https://www.postman.com/) para obtener los campos `url`, `data`, `header`.  
-* detalle gasolineras - usamos una lista de ids de gasolineras para solicitar información detallada de las gasolineras.  
+<br>
 
 ******
 # **Agradecimientos**
@@ -230,7 +324,10 @@ Los datos han sido recolectados de la página web de BonÁrea. Para ello se han 
 
 **6. Presentar al propietario del conjunto de datos. Es necesario incluir citas de análisis anteriores o, en caso de no haberlas, justificar esta búsqueda con análisis similares.**
 
+///>>> PENDIENTE DE ELABORACION
 
+
+<br>
 
 ******
 # **Inspiración**
@@ -241,7 +338,10 @@ Los datos han sido recolectados de la página web de BonÁrea. Para ello se han 
 
 **7. Explique por qué es interesante este conjunto de datos y qué preguntas se pretenden responder. Es necesario comparar con los análisis anteriores presentados en el apartado 6.**
 
+///>>> PENDIENTE DE ELABORACION
 
+
+<br>
 
 ******
 # **Licencia**
@@ -262,6 +362,15 @@ Los datos han sido recolectados de la página web de BonÁrea. Para ello se han 
 <li>**Unknown License**<p>
 </ul>
 
+<br>
+
+
+///>>> PENDIENTE DE DECISION.
+
+
+
+<br>
+
 ******
 # **Código**
 ******
@@ -271,8 +380,16 @@ Los datos han sido recolectados de la página web de BonÁrea. Para ello se han 
 
 **9. Adjuntar el código con el que se ha generado el dataset, preferiblemente en Python o, alternativamente, en R.**
 
+<P>
+
+La generación del dataset se ha generado utilizando el lenguaje de programación Python.<p>
+
+El código utilizado y archivos auxiliares se pueden encontrar en https://github.com/ bajo la siguiente dirección web:<p>
+
+https://github.com/Carlos-Acosta/webscraping.git
 
 
+<br>
 
 ******
 # **Dataset**
@@ -284,8 +401,15 @@ Los datos han sido recolectados de la página web de BonÁrea. Para ello se han 
 **10. Publicación del dataset en formato CSV en Zenodo (obtención del DOI) con una breve descripción.**
 
 
+///>>> PENDIENTE DE ELABORACIÓN DE LA ÚLTIMA VERSIÓN DEL DATASET...
+
+
+<br>
 
 ******
 # **Referencias**
 ******
+<br>
+1. Lawson, R. (2015). _Web Scraping with Python_. Packt Publishing Ltd. Chapter 2. Scraping the Data.<p>
+2. Mitchel, R. (2015). _Web Scraping with Python: Collecting Data from the Modern Web_. O'Reilly Media, Inc. Chapter 1. Your First Web Scraper.<p>
 <br>
