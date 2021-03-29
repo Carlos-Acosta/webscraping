@@ -323,8 +323,20 @@ Para realizar el webscraping se realiza en dos pasos:
 # **Agradecimientos**
 ******
 
-Los datos han sido recolectados de la página web de BonÁrea. Para ello se han utilizado `requests` de Python y la aplicación `Postman` (https://www.postman.com/)  
+Los datos han sido recolectados de la página web de BonÁrea. Para ello se han utilizado `requests` de Python y la aplicación `Postman` (https://www.postman.com/).<p>
+
+<br>
+Cabe mencionar que www.bonarea.com no dispone de ningún tipo de archivo "robots.txt", hecho que ha facilitado el scraping de la información con total libertad por parte de los estudiantes.<p>
 <br><br>
+
+
+<br>
+
+<p align="center">
+  <img src="./images/robots.jpg">
+</p>
+
+<br>
 
 
 **6. Presentar al propietario del conjunto de datos. Es necesario incluir citas de análisis anteriores o, en caso de no haberlas, justificar esta búsqueda con análisis similares.**
