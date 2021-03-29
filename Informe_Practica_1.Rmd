@@ -343,7 +343,75 @@ Los datos han sido recolectados de la página web de BonÁrea. Para ello se han 
 
 **7. Explique por qué es interesante este conjunto de datos y qué preguntas se pretenden responder. Es necesario comparar con los análisis anteriores presentados en el apartado 6.**
 
-///>>> PENDIENTE DE ELABORACION
+///>>> EN ELABORACION...
+
+
+El juego de datos generado nos aporta la información sobre los precios diarios de los carburantes (por productos y por gasolineras) de la empresa BonÀrea.<p>
+
+Esta información es realmente interesante para el usuario (y también para la competencia) puesto que se puede generar diferentes aplicaciones o visualizaciones que pueden ser base en toma de decisiones tanto particulares (el usuario puede elegir qué gasolinera repostar por ser más barata) como a nivel estratégico (la empresa competidora puede utilizarlos en su beneficio).<p>
+
+Ejemplos de posibles gráficas que se podría generar, serían las siguientes:<p>
+
+<br>
+
+
+**Heatmap geográfico de precios (siendo el color rojo indicador de productos más caros):**<p>
+
+
+<br>
+
+<p align="center">
+  <img src="./images/heatmap.jpg">
+</p>
+
+<br>
+
+
+
+**Evolución temporal del precio del carburante por producto y por gasolinera:**<p>
+
+
+<br>
+
+<p align="center">
+  <img src="./images/evolucion.jpg">
+</p>
+
+<br>
+
+
+**Estadísticos de los precios de los carburantes por producto y por día de la semana:**<p>
+
+
+<br>
+
+<p align="center">
+  <img src="./images/box.jpg">
+</p>
+
+<br>
+
+
+Como se puede observar, la información disponible es valiosa y útil en futuras tomas de decisiones.<p>
+
+
+Por otro lado, el dataset también aporta información de los servicios asociados a cada gasolinera, donde éstos pueden ser:<p>
+
+<br>
+
+<ul>
+<li>**RENTADOR**	- Tiene túnel de lavado de coches<p>
+<li>**CANVI** - Tiene cambio para dinero, booleano<p>
+<li>**SUPER**	- Tiene supermercado<p>
+<li>**LAVABO** - Tiene lavabo<p>
+<li>**PARKING** - Tiene parking<p>
+<li>**VENDING** - Tiene vending<p>
+</ul>
+
+<br>
+
+Y en consecuencia, además de la infomación adicional que el usuario pueda obtener de los diferentes servicios que aporta cada gasolinera, estadísticas sobre los precios de los carburantes mediante la agrupación de los diferentes servicios provistos, puede aportar información oculta, que a primera vista no trivial.<p>
+
 
 
 <br>
