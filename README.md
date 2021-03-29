@@ -15,9 +15,25 @@ La actividad ha sido realizada por: **Olga Garcés Ciemerozum** y **Carlos Acost
 * **get_dataframe.py**: Generador de los diferentes dataframes 'a la carte' a petición del usuario (formato archivo: csv).
 * **get_reports.py**: Generador de las diferentes aplicaciones 'a la carte' a petición del usuario (formato archivo: varios).
 * **main_functions.py**: Contiene la implementación de las diferentes funciones para extraer los datos mediante técnicas de web scraping y la creación de los datasets.
-* **zzz.py**: contiene la implementación de..
-* **zzz.py**: contiene la implementación de..
-* **zzz.py**: contiene la implementación de..
+* **plot_box.py**: Contiene la implementación de la aplicación para crear gráficos box plot con los datos extraídos.
+* **plot_price_evolution.py**: Contiene la implementación de la aplicación para crear gráficos de evolución del precio según tipo de producto.
+* **plot_heatmap.py**: Contiene la implementación de la aplicación para crear un heatmap geográfico de los precios según el producto escogido.
+
+
+
+### Prerequesitos
+
+Este projecto se ha implementado en Python 3.8.8. Se recomienda esta versión o posteriores para evitar incompatibilidades con el código fuente.<p>
+El archivo hat things you need to install the software and how to install them
+
+```
+Give examples
+
+
+## Instrucciones
+
+Para poder ejecutar directamente este proyecto en tu máquina local, deberás clonar todo el repositorio mediante su dirección url.<p>
+Una vez clonado, deThese instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 
 
@@ -27,20 +43,11 @@ La actividad ha sido realizada por: **Olga Garcés Ciemerozum** y **Carlos Acost
 2. Mitchel, R. (2015). _Web Scraping with Python: Collecting Data from the Modern Web_. O'Reilly Media, Inc. Chapter 1. Your First Web Scraper.
 
 
-# Project Title
 
-One Paragraph of project description goes here
 
-## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
 ```
 
 ### Installing
