@@ -32,7 +32,7 @@ El presente informe forma parte de la primera práctica de la asignatura M2.851 
 
 En esta práctica se realizarán técnicas de Web scraping aplicadas a una Web en concreto y se analizarán dichos datos para extraer información relevante y útil.<p>
 
-A su vez, se entregará, junto con la presente memoria, una serie de archivos con el código necesario para la realización de dicho Web scraping y un juego de datos real y actualizado con el que el usuario podrá realizar diferenres estudios analíticos a posteriori.<p> 
+A su vez, se entregará, junto con la presente memoria, una serie de archivos con el código necesario para la realización de dicho Web scraping y varios juegos de datos reales y actualizados con el que el usuario podrá realizar diferentes estudios analíticos a posteriori.<p> 
 
 <br>
 
@@ -62,15 +62,19 @@ Las gasolineras bonÀrea son conocidas por su precio económico debido a sus red
 Para ésta práctica, se ha decidido hacer un estudio geográfico y temporal de los precios de las gasolineras de bonÀrea Energía, para determinar, no solamente las variaciones diarias de los precios de los diferentes productos, sinó también realizar un registro de las economías de escala asociadas a cada gasolinera (servicios complementarios aportados por cada gasolinera).<p> 
 
 
-## Información extraída del sitio web.<p>
+*Información extraída del sitio web.*<p>
 
 El dominio www.bonarea.com aporta una web dinámica que referencia a todas las divisiones de negocio del grupo, implementando diferentes esquemas de datos para que la experiencia del usuario final a nivel de visualización de la información sea clara y concisa.<p>
 
+<p align="center">
+  <img src="./images/web1.jpg">
+</p>
 
-
-(PONER FOTO DE LA PAGINA WEB - > CARLOS)<p>
 
 En el apartado de los establecimientos, y en particular en el de las gasolineras, la página web aporta diferentes datos sobre ellas, tando a nivel geográfico mediante un mapa interactivo para que el usuario sepa en todo momento dónde está la gasolinara más cercana, como a nivel económico (se muestran los precios de los diferentes carburantes disponibles en cada una de ellas).<p>
+
+
+
 
 Cada gasolinera dispone de una página web anidada para que el usuario pueda tener información adicional como el horario de apertura, dirección , teléfono, etc. de cada una de los establecimientos.<p>
 
