@@ -54,5 +54,5 @@ El programa puede generar 4 tipos de gráficas:<p>
 
 ## License
 
-Este projecto está bajo la lincencia XXX
+///>>> PENDIENTE DE DECISION
 
