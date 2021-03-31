@@ -1,0 +1,5 @@
+id,type,url,street,city,postalCode,raoSocial,latitude,longitude,minutsLatitude,minutsLongitude,RENTADOR,CANVI,SUPER,LAVABO,PARKING,VENDING
+43901,bufet,https://www.bonarea.com/ca/default/bufet/guissona,AREA PROMOCIONAL - CL DELS LLACS 1,GUISSONA,,,41.781436993114994,1.2780135869979858,41° 46' 53'',1° 16' 40'',,,,,,
+43903,bufet,https://www.bonarea.com/ca/default/bufet/reus,CR RIUDOMS KM 2 2,REUS,,,41.145528,1.085083,41° 08' 43'',1° 05' 06'',,,,,,
+43908,bufet,https://www.bonarea.com/ca/default/bufet/torrefarrera,PG POL.IND.C/MARINADA S/N,TORREFARRERA,,,41.664952,0.603821,41° 39' 53'',0° 36' 13'',,,,,,
+43911,bufet,https://www.bonarea.com/ca/default/bufet/jorba,CR AUTOVIA A-2 KM 545 0,JORBA,,,41.60249499749782,1.539931297302246,41° 36' 08'',1° 32' 23'',,,,,,
