@@ -247,3 +247,33 @@ def update_dataframe1(out_file, entity_type = "benzinera"):
                 csvfile.write(get_df_row_by_id(id_gasolineras_list[i], entity_type)[0].to_csv(index=False, header=False))
         
     return
+
+
+
+
+def update_dataframe_combinado(benzinera, box, bufet):
+    """Creates dataframe if csv file does not exist and 
+    updates existing dataframes with new data
+    """
+
+    # eliminar el 1 del nombre del csv
+    id_gasolineras_list = get_id_by_entityType1(benzinera)
+    id_box_list = get_id_by_entityType1(box)
+    id_bufet_list = get_id_by_entityType1(bufet)
+
+    csv_name = 'bonarea_establecimientos.csv'
+    if os.path.isfile(csv_name):
+        pass
+    else:
+        with open(csv_name,'a', newline='') as csvfile:
+            csvfile.write(get_df_row_by_id(id_gasolineras_list[0],benzinera )[0].to_csv(index=False, header=True))
+            for i in range(1,len(id_gasolineras_list)):
+                csvfile.write(get_df_row_by_id(id_gasolineras_list[i], benzinera)[0].to_csv(index=False, header=False))
+        
+            for i in range(1,len(id_box_list)):
+                csvfile.write(get_df_row_by_id(id_box_list[i], box)[0].to_csv(index=False, header=False))
+        
+            for i in range(1,len(id_bufet_list)):
+                csvfile.write(get_df_row_by_id(id_bufet_list[i], bufet)[0].to_csv(index=False, header=False))
+        
+    return
