@@ -28,22 +28,22 @@ def build_request(list_of_types = ["benzinera"]):
     return res
 
 
-def get_response(request_str):
-    """[summary]
-        Uses a search string to place a post request. Returns the response formatted as json
-    Args:
-        request_str ([str]): [a search string that contains the parameters necessary to place a post request]
-    """
+# def get_response(request_str):
+#     """[summary]
+#         Uses a search string to place a post request. Returns the response formatted as json
+#     Args:
+#         request_str ([str]): [a search string that contains the parameters necessary to place a post request]
+#     """
 
-    data = request_str
-    headers = {'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-               'origin': 'https://www.bonarea.com',
-               'Referer': 'https://www.bonarea.com/ca/default/locate'}
+#     data = request_str
+#     headers = {'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+#                'origin': 'https://www.bonarea.com',
+#                'Referer': 'https://www.bonarea.com/ca/default/locate'}
 
-    url = 'https://www.bonarea-agrupa.com/locator/Localitzador/Get'
-    response = requests.post(url, data=data, headers=headers)
-    resp = response.json()
-    return resp
+#     url = 'https://www.bonarea-agrupa.com/locator/Localitzador/Get'
+#     response = requests.post(url, data=data, headers=headers)
+#     resp = response.json()
+#     return resp
 
 
 def get_response1(entity_type="benzinera"):
@@ -63,16 +63,16 @@ def get_response1(entity_type="benzinera"):
     resp = response.json()
     return resp
 
-def get_id_by_entityType(entity_type="benzinera"):
-    """
-    uses the response from get_response and extracts data such as id, coordenades, type, etc. 
-    not all data types can be extracted from this view. So we return a list of ids and iterate over them later. 
-    """
-    response = get_response(build_request([entity_type]))
-    ids = []
-    for data in response:
-        id = data["id"]
-        ids.append(id)
+# def get_id_by_entityType(entity_type="benzinera"):
+#     """
+#     uses the response from get_response and extracts data such as id, coordenades, type, etc. 
+#     not all data types can be extracted from this view. So we return a list of ids and iterate over them later. 
+#     """
+#     response = get_response(build_request([entity_type]))
+#     ids = []
+#     for data in response:
+#         id = data["id"]
+#         ids.append(id)
 
     return ids
 
@@ -91,19 +91,19 @@ def get_id_by_entityType1(entity_type="benzinera"):
 
 
 
-def get_data_by_id(id):
-    """
-    gets a response for all relevant information belonging to an id. At this point the function just sends a request to the ajax page
-    and gets back a json code
-    """
-    headers = {'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-            'origin': 'https://www.bonarea.com',
-            'Referer': 'https://www.bonarea.com/ca/default/locate'}
-    url = 'https://www.bonarea-agrupa.com/locator/Localitzador/GetByID'
-    data = "id="+id+"&tipus=BENZINERA&language=ca"
-    response = requests.post(url, data=data, headers=headers)
-    resp = response.json()
-    return resp
+# def get_data_by_id(id):
+#     """
+#     gets a response for all relevant information belonging to an id. At this point the function just sends a request to the ajax page
+#     and gets back a json code
+#     """
+#     headers = {'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+#             'origin': 'https://www.bonarea.com',
+#             'Referer': 'https://www.bonarea.com/ca/default/locate'}
+#     url = 'https://www.bonarea-agrupa.com/locator/Localitzador/GetByID'
+#     data = "id="+id+"&tipus=BENZINERA&language=ca"
+#     response = requests.post(url, data=data, headers=headers)
+#     resp = response.json()
+#     return resp
 
 def get_data_by_id1(id, entity_type="benzinera"):
     """
@@ -203,7 +203,7 @@ def get_df_row_by_id(gasolinera_id, entity_type="benzinera"):
 def update_prices(entity_type = "benzinera"):
     """Creates dataframe with prices of fuel
     """
-    id_gasolineras_list = get_id_by_entityType(entity_type)
+    id_gasolineras_list = get_id_by_entityType1(entity_type)[0]
     csv_name = 'bonarea_gasolineras_prices.csv'
     if os.path.isfile(csv_name):
         with open(csv_name,'a', newline='') as csvfile:
@@ -220,7 +220,7 @@ def update_prices(entity_type = "benzinera"):
 def update_data_and_prices(entity_type = "benzinera"):
     """Creates dataframe with prices of fuel
     """
-    id_gasolineras_list = get_id_by_entityType(entity_type)
+    id_gasolineras_list = get_id_by_entityType1(entity_type)[0]
     csv_name = 'bonarea_gasolineras_data_and_prices.csv'
     if os.path.isfile(csv_name):
         with open(csv_name,'a', newline='') as csvfile:

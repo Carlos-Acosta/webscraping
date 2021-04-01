@@ -11,11 +11,11 @@ from datetime import datetime
 
 
 from main_functions import build_request
-from main_functions import get_response
-from main_functions import get_data_by_id
-from main_functions import get_id_by_entityType
+#from main_functions import get_response
+#from main_functions import get_data_by_id
+from main_functions import get_id_by_entityType1
 from main_functions import get_df_row_by_id
-from main_functions import update_dataframe
+#from main_functions import update_dataframe
 from plot_box import box_price_one_id
 from plot_box import box_price_all_id
 from plot_heatmap import heatmap
@@ -53,7 +53,7 @@ else:
     print("These are the available Petrol Station Id: ")
     print()
     print()
-    print(get_id_by_entityType())
+    print(get_id_by_entityType1()[0])
     petrol_station_id = str(input("Enter the petrol station Id:")).upper()
 
 print()
@@ -71,7 +71,7 @@ petrol_product_type = str(input("Enter the petrol product(GASOIL A, GASOLINA S/P
 
 
 def report(type_report):
-    if petrol_station_id not in get_id_by_entityType():
+    if petrol_station_id not in get_id_by_entityType1()[0]:
         result = print("Please, introduce correct Petrol Station Id!")
     
     elif petrol_product_type not in product_list:

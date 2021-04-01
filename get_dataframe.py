@@ -10,14 +10,14 @@ from datetime import datetime
 
 
 from main_functions import build_request
-from main_functions import get_response
-from main_functions import get_data_by_id
-from main_functions import get_id_by_entityType
+from main_functions import get_response1
+from main_functions import get_data_by_id1
+from main_functions import get_id_by_entityType1
 from main_functions import get_df_row_by_id
-from main_functions import update_dataframe
+
 from main_functions import update_prices
 from main_functions import update_data_and_prices
-from main_functions import update_dataframe
+
 from main_functions import update_dataframe_global
 
 
