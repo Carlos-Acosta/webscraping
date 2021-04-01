@@ -1,6 +1,6 @@
-from main_functions import get_response1, get_data_by_id1, update_dataframe1, build_request, get_id_by_entityType1, get_df_row_by_id
 from main_functions import  update_dataframe_entity, update_dataframe_global
-
+from functions1 import update_dataframe
+import time
 
 # datos por id, en función del id y tipo de intidad
 #print(get_data_by_id1("42376", "BOTIGA"))
@@ -10,8 +10,20 @@ from main_functions import  update_dataframe_entity, update_dataframe_global
 #update_dataframe1("box1.csv", "box")
 #update_dataframe1("bu1f.csv", "bufet")
 #print(get_df_row_by_id(id_gasolineras_list[0], entity_type))
+start = time.time()
 update_dataframe_global()
+end = time.time()
+durationC = end - start
+print("Carlos ", durationC)
 
+start = time.time()
+update_dataframe(["super", "botiga", "benzinera", "bufet", "box", "cash", "diposit"])
+end = time.time()
+durationO = end - start
+print("Olga ", durationO)
+
+print("and the winner is:")
+print(min(durationC, durationO))
 
 # tu función con poco cambio, le metes id, devuelve línea
 # NOTA: hay que pasarle el tipo de entidad, sino por defecto es benzinera

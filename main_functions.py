@@ -45,7 +45,7 @@ def get_response1(entity_type="benzinera"):
     return resp
 
   
-  def get_id_by_entityType1(entity_type="benzinera"):
+def get_id_by_entityType1(entity_type="benzinera"):
     """
     uses the response from get_response and extracts data such as id, coordenades, type, etc. 
     not all data types can be extracted from this view. So we return a list of ids and iterate over them later. 

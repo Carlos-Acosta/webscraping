@@ -1,4 +1,4 @@
-from main_functions1 import build_request, get_response, get_id_by_entityType, get_data_by_id, update_prices, update_dataframe, get_df_row_by_id, update_data_and_prices
+from functions1 import build_request, get_response, get_id_by_entityType, get_data_by_id, update_prices, update_dataframe, get_df_row_by_id, update_data_and_prices
 import pandas as pd
 import time
 
