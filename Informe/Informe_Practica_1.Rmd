@@ -171,6 +171,10 @@ Por tanto, habrá 3 títulos propuestos para los diferentes datasets. Los títul
 
 ///>>> PENDIENTE DE ELABORACION
 
+El conjunto de datos ha sido extraido de la página web de bonÁrea y contiene datos sobre los distintos establecimientos de la marca (gasolinera, tienda, supermercado, box, bufet, depósito, cash). Para cada uno de los establecimientos se dispone de una url información geográfica y servicios disponibles en el mismo. En el caso concreto de las gasolineras disponemos además de los precios de distintos tipos de combustible.  
+
+
+
 <br>
 
 ******
