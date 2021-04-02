@@ -51,10 +51,8 @@ def dataframe(type_of_dataset):
     else:
         if (type_of_dataset == "1"):
             #Dataframe 1
-            #dataframe = update_dataframe("benzinera")
             dataframe = update_dataframe_global()
-            #dataframe = update_dataframe_combinado("benzinera", "box", "bufet")
-
+            
         elif (type_of_dataset == "2"):
             # Dataframe 2
             dataframe = update_prices("benzinera")
