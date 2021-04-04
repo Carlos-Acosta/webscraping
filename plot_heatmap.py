@@ -1,7 +1,10 @@
+# Import functions/libraries
 import gmaps
 import pandas as pd
 
 def heatmap(api, csv_file, product_list):
+    """Creates a heatmap with prices data from one petrol product
+    """
     gmaps.configure(api_key=api) 
     df = pd.read_csv('bonarea_gasolineras_prices.csv')
     normalized_price=(df[product_list]-df[product_list].min())/(df[product_list].max()-df[product_list].min())
