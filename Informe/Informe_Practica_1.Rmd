@@ -68,9 +68,12 @@ BonÀrea es empresa con una amplia experiencia en el sector agroalimentario, don
 
 Una de las divisiones de la empresa, bonÀrea Energía, dispone de más de 55 gasolineras que venden más de 430 millones de litros al año con un ratio calidad/precio que hace ahorrar más de 40 millones de euros al año a sus clientes.<p>
 
-Las gasolineras bonÀrea son conocidas por su precio económico debido a sus reducidos márgenes de beneficio y al gran volumen de carburantes vendido, y además debido al uso de economías de escala entres sus diferentes líneas de negocio.<p>
+Las gasolineras bonÀrea son conocidas por su precio económico debido a sus reducidos márgenes de beneficio y al gran volumen de carburantes vendido, y además debido al uso de economías de escala entre sus diferentes líneas de negocio.<p>
 
-Para ésta práctica, se ha decidido hacer un estudio geográfico y temporal de los precios de las gasolineras de bonÀrea Energía, para determinar, no solamente las variaciones diarias de los precios de los diferentes productos, sinó también realizar un registro de las economías de escala asociadas a cada gasolinera (servicios complementarios aportados por cada gasolinera).<p> 
+Para ésta práctica, se ha decidido hacer un estudio geográfico y temporal de los precios de las gasolineras de bonÀrea Energía, para determinar, no solamente las variaciones diarias de los precios de los diferentes productos, sinó también realizar un registro de las economías de escala asociadas a cada gasolinera (servicios complementarios aportados por cada gasolinera).<p>
+
+De igual forma, y debido a que la página web muestra información descriptiva y relevante de todos los establecimientos que BonÀrea tiene repartido a lo largo del territorio español (supermercados, tiendas, bufets, gasolineras, "Box online" de recogida, Centros de Agricultura y centros Cash para venta al mayor), se ha decidido recolectar y agrupar en un dataset dicha información.
+
 
 <br>
 
@@ -87,7 +90,7 @@ El dominio www.bonarea.com aporta una web dinámica que referencia a todas las d
 
 <br>
 
-En el apartado de los establecimientos, y en particular en el de las gasolineras, la página web aporta diferentes datos sobre ellas, tanto a nivel geográfico mediante un mapa interactivo para que el usuario sepa en todo momento dónde está la gasolinara más cercana, como a nivel económico (se muestran los precios de los diferentes carburantes disponibles en cada una de ellas).<p>
+En el apartado de los establecimientos, para todos ellos y en particular en el de las gasolineras, la página web aporta diferentes datos sobre ellas, tanto a nivel geográfico mediante un mapa interactivo para que el usuario sepa en todo momento dónde está la gasolinara más cercana, como a nivel económico (se muestran los precios de los diferentes carburantes disponibles en cada una de ellas).<p>
 
 La página permite al usuario seleccionar uno o varios tipos de establecimientos y muestra la ubicación sobre el mapa de todos establecimientos de los tipos seleccionados.<p>
 
@@ -99,9 +102,7 @@ La página permite al usuario seleccionar uno o varios tipos de establecimientos
 
 <br>
 
-Además, haciendo click en el icono **"+ info"**, cada gasolinera dispone de una página web anidada para que el usuario pueda tener información adicional como el horario de apertura, dirección , teléfono, etc. de cada una de los establecimientos.<p>
-
-
+Además, haciendo click en el icono **"+ info"**, cada establecimiento dispone de una página web anidada para que el usuario pueda tener información adicional como el horario de apertura, dirección , teléfono, etc. de cada uno de ellos.<p>
 
 <br>
 
@@ -141,20 +142,19 @@ El proyecto puede generar el dataset en dos modalidades:<p>
 <br>
 
 <ul>
-<li>**1. Dataset en dos archivos csv:** csv con datos de las gasolineras y csv actualizable con histórico de precios diarios de las diferentes gasolineras.<p>
-<li>**3. Dataset completo en un archivo csv** (combinación de los dos primeros datasets)**<p>
+<li>**1. Dataset gasolineras en dos archivos csv:** csv con datos de las gasolineras y csv actualizable con histórico de precios diarios de las diferentes gasolineras.<p>
+<li>**2. Dataset completo de todos los establecimientos en un archivo csv** (información descriptiva de los establecimientos)**<p>
 </ul>
 
 <br>
 
-Por tanto, habrá 3 títulos propuestos para los diferentes datasets. Los títulos se muestran en orden de aparición en referencia a la anterior lista:<p>
+Por tanto, habrá 2 títulos propuestos para los diferentes datasets. Los títulos se muestran en orden de aparición en referencia a la anterior lista:<p>
 
 <br>
 
 <ul>
-<li>**1.   "Información descriptiva de las gasolineras bonÀrea."**<p>
-<li>**2.   "Valores diarios del precio de los carburantes en gasolineras bonÀrea."**<p>
-<li>**3.   "Gasolineras bonÀrea: Información descriptiva y valores diarios del precio de los carburantes."**<p>
+<li>**1.   "Información descriptiva de las gasolineras bonÀrea, servicios asociados y valores diarios del precio de los carburantes"**<p>
+<li>**2.   "Establecimientos bonÀrea: Información descriptiva de los supermercados, tiendas, bufets, gasolineras, Box online, Centros de Agricultura y centros Cash."**<p>
 </ul>
 
 
@@ -169,9 +169,18 @@ Por tanto, habrá 3 títulos propuestos para los diferentes datasets. Los títul
 
 **3. Desarrollar una descripción breve del conjunto de datos que se ha extraído (es necesario que esta descripción tenga sentido con el título elegido).**.
 
-///>>> PENDIENTE DE ELABORACION
+"Información descriptiva de las gasolineras bonÀrea, servicios asociados y valores diarios del precio de los carburantes"<p>
 
-El conjunto de datos ha sido extraido de la página web de bonÁrea y contiene datos sobre los distintos establecimientos de la marca (gasolinera, tienda, supermercado, box, bufet, depósito, cash). Para cada uno de los establecimientos se dispone de una url información geográfica y servicios disponibles en el mismo. En el caso concreto de las gasolineras disponemos además de los precios de distintos tipos de combustible.  
+El conjunto de datos muestra el identificador de cada gasolinera con la fecha y día de la semana de la extracción de la información.<p>
+Además se incluye información básica de cada gasolinera (url, calle, ciudad, código postal, localización geográfica, servicios que provee en el propio establecimiento y los precios diarios de cada producto (Gasoil A, Gasolina sin plomo 95 y 98 y Adblue).<p>
+
+Todos los atributos no tienen valores nulos excepto los servicios asociados y los productos de la gasolinera, donde pueden tomar valores nulos si tal servicio o producto no existe en esa determinada gasolinera.<p>
+
+
+"Establecimientos bonÀrea: Información descriptiva de los supermercados, tiendas, bufets, gasolineras, Box online, Centros de Agricultura y centros Cash."<p>
+
+
+El conjunto de datos muestra la misma información relevante que el anterior juego de datos para todos los tipos de establecimientos a excepción de los precios diarios por tipo de carburante.<p>  
 
 
 
@@ -186,7 +195,22 @@ El conjunto de datos ha sido extraido de la página web de bonÁrea y contiene d
 
 **4. Presentar esquema o diagrama que identifique el dataset visualmente y el proyecto elegido.**
 
-///>>> PENDIENTE DE ELABORACION
+
+<br>
+
+<p align="center">
+  <img src="./images/Diagrama1.jpg">
+</p>
+
+<br>
+
+<br>
+
+<p align="center">
+  <img src="./images/Diagrama2.jpg">
+</p>
+
+<br>
 
 <br>
 
