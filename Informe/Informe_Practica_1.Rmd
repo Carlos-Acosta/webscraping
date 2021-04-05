@@ -352,6 +352,11 @@ Para realizar el webscraping se realiza en dos pasos:
 
 Los datos han sido recolectados de la página web de BonÁrea. Para ello se han utilizado `requests` de Python y la aplicación `Postman` (https://www.postman.com/).<p>
 
+
+DESCRIPCION DE LO QUE HACE Y SE CONSIGUE CON POSTMAN
+
+
+
 <br>
 Cabe mencionar que www.bonarea.com no dispone de ningún tipo de archivo "robots.txt", hecho que ha facilitado el scraping de la información con total libertad por parte de los estudiantes.<p>
 <br><br>
@@ -368,8 +373,67 @@ Cabe mencionar que www.bonarea.com no dispone de ningún tipo de archivo "robots
 
 **6. Presentar al propietario del conjunto de datos. Es necesario incluir citas de análisis anteriores o, en caso de no haberlas, justificar esta búsqueda con análisis similares.**
 
-///>>> PENDIENTE DE ELABORACION
+El fundador y presidente de BonÀrea es Don **Jaume Alsina Calvet**, como tal, el conjunto de datos es de su propiedad.<p>
+<p>
 
+Si desglosamos los datos según la estructura empresarial de BonÀrea, podemos argumentar que:<p>
+
+-Los datos descriptivos extraídos para los supermercados, tiendas, bufets, Box online, Centros de Agricultura y centros Cash pertenecen a las marcas de enseña (parte de la División de Alimentación); **BonÀrea Agrocentro** (Centros de Agricultura), **BonÀrea Restaurante** (Bufet), **BonÀrea Cash & Carry** (Box Online y Cash) y **BonÀrea Alimenta**(supermercados y tiendas).<p>
+
+-Los datos evolutivos extraídos para las gasolineras pertenencen a la División de NO alimentación, en especial **BonÀrea Energía**.<p>
+
+
+<br>
+
+<p align="center">
+  <img src="./images/estructura.jpg">
+</p>
+
+<br>
+
+
+Después de una búsqueda/rastreo de la página web de BonÀrea y diversas websites relacionadas con la empresa, no existe, al menos públicamente un recopilatorio único **elaborado por BonÀrea** donde se muestre o se pueda descargar toda la información descriptiva de cada establecimiento.<p>
+
+De igual manera, no existe, al menos públicamente, ningún análisis **elaborado por BonÀrea** de la evolución de los precios de sus carburantes por cada una de sus gasolineras, ni por fechas, ni por días de la semana.<p>
+
+Es cierto que algunas websites tratan de recopilar todos los datos posibles relacionados con ciertas gasolineras, pero a veces la información no es completa. Tómese como ejemplo la siguiente página web: (https://www.dieselogasolina.com/), que muestra los precios de los carburantes de una gasolinera en concreto del grupo BonÀrea, pero a diferencia de la website de BonÀrea, no muestra todos los carburantes (**el ADBLUE no está analizado**).<p>
+
+Por tanto, la extracción de la información desde página raíz es necesaria para poder extraer un juego de datos completo y 100% fiable y actualizado.<p>
+
+
+Ejemplo tomado para la gasolinera de GAVA de BonÀrea:<p>
+<br>
+
+**Información extraída de la web de BonÀrea:**<p>
+
+
+<br>
+
+<p align="center">
+  <img src="./images/gasolinaydiesel0.jpg">
+</p>
+
+<br>
+
+
+
+**Información extraída de la web de Dieselogasolina:**<p>
+
+
+<br>
+
+<p align="center">
+  <img src="./images/gasolinaydiesel.jpg">
+</p>
+
+<br>
+
+
+<p align="center">
+  <img src="./images/gasolinaydiesel2.jpg">
+</p>
+
+<br>
 
 <br>
 
@@ -381,8 +445,6 @@ Cabe mencionar que www.bonarea.com no dispone de ningún tipo de archivo "robots
 
 
 **7. Explique por qué es interesante este conjunto de datos y qué preguntas se pretenden responder. Es necesario comparar con los análisis anteriores presentados en el apartado 6.**
-
-///>>> EN ELABORACION...
 
 
 El juego de datos generado nos aporta la información sobre los precios diarios de los carburantes (por productos y por gasolineras) de la empresa BonÀrea.<p>
@@ -450,6 +512,11 @@ Por otro lado, el dataset también aporta información de los servicios asociado
 <br>
 
 Y en consecuencia, además de la infomación adicional que el usuario pueda obtener de los diferentes servicios que aporta cada gasolinera, estadísticas sobre los precios de los carburantes mediante la agrupación de los diferentes servicios provistos, puede aportar información oculta, que a primera vista no trivial.<p>
+<br>
+
+Hay otra aplicación que los estudiantes ven de hecho como un potencial análisis a realizar. Se ha observado que los precios oficiales en la página web no varían todos los días, aunque es sabido que los precios diarios sí que cambian. Los estudiantes se han realizado la pregunta del porqué esta frecuencia de actualizaciones de precios y si pudiera haber algún patrón escondido detras.<p>
+
+Debido a que el juego de datos captura no solamente la fecha, sino también el día de la semana, **y una vez la recolección de los datos pudiese ser grande** (mínimo unos meses de actualizaciones o incluso del órden anual) se podría realizar un algoritmo de clustering para agrupar las diferentes fechas, días de las semanas y gasolineras para poder descubrir un posible patrón de comportamiento.<p>
 
 
 
