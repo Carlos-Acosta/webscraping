@@ -32,7 +32,7 @@ El archivo requierements.txt muestra las librerías específicas que son requeri
 ## Instrucciones
 
 Para poder ejecutar directamente este proyecto en tu máquina local, deberás clonar todo el repositorio mediante su dirección url.<p>
-Una vez clonado, para generar los datasets, se debe ejecutar el archivo **get_dataframe.py** y seguir las instrucciones.  
+Una vez clonado, para generar los datasets, se debe ejecutar el archivo "get_dataframe.py" y seguir las instrucciones.  
 
 El proyecto puede generar 3 archivos con formato csv que formarán parte del dataset:
 
@@ -42,7 +42,7 @@ El proyecto puede generar 3 archivos con formato csv que formarán parte del dat
 
 
 
-Para ejecutar las aplicaciones existentes en el proyecto, se debe ejecutar **get_reports.py** y seguir las instrucciones.
+Para ejecutar las aplicaciones existentes en el proyecto, se debe ejecutar "get_reports.py" y seguir las instrucciones.
 
 El programa puede generar 4 tipos de gráficas:<p>
 
