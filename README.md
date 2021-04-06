@@ -53,7 +53,11 @@ El programa puede generar 4 tipos de gráficas:<p>
 * Gráfico de evolución temporal de los precios de cada producto y por gasolinera.<p>
 * Heatmap geográfico de los precios por producto.<p>
 
-Debido a que parte del dataset se debe generar diariamente con los datos de referencia, si se desease automatizar el proceso, se debería crear una aplicación CRON en el sistema operativo (Linux / Mac) o gestionarlo mediante “Scheduled Tasks” de Windows. Dicho proceso sería útil si se mantuviese la máquina operativa 24 h, 7 días a la semana, con lo cual el usuario se quisiera despreocupar de ejecutar el archivo "get_dataframe.py" cada día.<p>
+
+
+## Automatización de los datos
+
+Debido a que parte del dataset se debe generar diariamente con los datos de referencia, si se desease automatizar el proceso, se debería crear, de forma local, una aplicación CRON en el sistema operativo (Linux / Mac) o gestionarlo mediante “Scheduled Tasks” de Windows. Dicho proceso sería útil si se mantuviese la máquina operativa 24 h, 7 días a la semana, con lo cual el usuario se podría despreocupar de ejecutar el archivo "get_dataframe.py" cada día.<p>
 
 
 ## Memoria
