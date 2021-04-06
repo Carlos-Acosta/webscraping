@@ -51,6 +51,9 @@ El programa puede generar 4 tipos de gráficas:<p>
 * Gráfico de evolución temporal de los precios de cada producto y por gasolinera.<p>
 * Heatmap geográfico de los precios por producto.<p>
 
+## Memoria
+
+Este proyecto dispone de una memoria con información exhaustiva y explicaciones en cuanto a la elaboración del dataset. La memoria se dispone en formato docx y pdf en la carpeta "Informe".  
 
 ## Recursos
 
