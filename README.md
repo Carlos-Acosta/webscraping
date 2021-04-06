@@ -27,6 +27,8 @@ La actividad ha sido realizada por: **Olga Garcés Ciemerozum** y **Carlos Acost
 
 Este projecto se ha implementado en Python 3.8.8. Se recomienda esta versión o posteriores para evitar incompatibilidades con el código fuente.<p>
 El archivo requierements.txt muestra las librerías específicas que son requeridas para poder ejecutar correctamente el proyecto.<p>
+  
+Para la elaboración de la visualización del heatmap, se deberá de disponer de una API de Google Maps. Se puede obtener una siguiendo las instrucciones en https://developers.google.com/maps.<p>
 
 
 ## Instrucciones
