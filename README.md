@@ -58,5 +58,5 @@ El programa puede generar 4 tipos de gráficas:<p>
 
 ## License
 
-///>>> PENDIENTE DE DECISION
+Database released under Open Data Commons Open Database License (ODbL) v1.0, individual contents under Database Contents License (DbCL) v1.0
 
