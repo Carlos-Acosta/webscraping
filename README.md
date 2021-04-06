@@ -18,9 +18,9 @@ La actividad ha sido realizada por: **Olga Garcés Ciemerozum** y **Carlos Acost
 * **get_dataframe.py**: Generador de los diferentes dataframes 'a la carte' a petición del usuario (formato archivo: csv).
 * **get_reports.py**: Generador de las diferentes aplicaciones 'a la carte' a petición del usuario (formato archivo: varios).
 * **main_functions.py**: Contiene la implementación de las diferentes funciones para extraer los datos mediante técnicas de web scraping y la creación de los datasets.
-* **plot_box.py**: Contiene la implementación de la aplicación para crear gráficos box plot con los datos extraídos.
-* **plot_price_evolution.py**: Contiene la implementación de la aplicación para crear gráficos de evolución del precio según tipo de producto.
-* **plot_heatmap.py**: Contiene la implementación de la aplicación para crear un heatmap geográfico de los precios según el producto escogido.
+* **plot_box.py**: Contiene la implementación de la aplicación para crear gráficos box plot con los datos extraídos según carburante y día de la semana.
+* **plot_price_evolution.py**: Contiene la implementación de la aplicación para crear gráficos de evolución del precio según tipo de carburante y gasolinera.
+* **plot_heatmap.py**: Contiene la implementación de la aplicación para crear un heatmap geográfico de los precios según el carburante escogido.
 
 
 ## Prerequesitos
