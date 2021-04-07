@@ -8,18 +8,22 @@ from datetime import datetime
 
 def build_request(list_of_types = ["benzinera"]):
     """[summary]
-        build_request generates a json search string from parameters
+        build_request generates a search string from parameters
     Args:
         list_of_types (list, optional): [a list of entity types]. Defaults to ["super", "botiga", "benzinera", "bufet", "box", "cash", "diposit"].
 
     Returns:
-        [str]: [string to be used put a request to a webspace]
+        [str]: [string that can be used to put a request to a webspace]
     """
+    # Substring for first element of the list
     res = "options["+str(list_of_types[0])+"]=true&"
     
+    # Generates substrings for secont - last elements
+    # adds them to previous substring res
     for types in list_of_types[1:len(list_of_types)]:    
         res += "options["+types+"]=true&"
 
+    # Adds language request to previously generated string
     res += "language=ca"
 
     return res
@@ -33,12 +37,19 @@ def get_response1(entity_type="benzinera"):
         [str]: [Returns the response formatted as json]
     """
 
+    # Builds a request string and saves it in variable data
     data = build_request([entity_type])
+
+    # Builds request headers
     headers = {'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
                'origin': 'https://www.bonarea.com',
                'Referer': 'https://www.bonarea.com/ca/default/locate'}
 
+    # Request url
     url = 'https://www.bonarea-agrupa.com/locator/Localitzador/Get'
+
+    # Combines url, data and headers to build request
+    # Response formatted as json
     response = requests.post(url, data=data, headers=headers)
     resp = response.json()
     return resp
@@ -51,8 +62,10 @@ def get_id_by_entityType1(entity_type="benzinera"):
     Args:
         request_str ([str]): [a search string that contains the entity type/s]
     Returns:
-        [tupla]: [List of ids and entity type]
+        [tuple]: [List of ids and entity type]
     """
+
+    # Uses response from request and extracts a list of IDs
     response = get_response1(entity_type)
     ids = []
     for data in response:
@@ -64,19 +77,25 @@ def get_id_by_entityType1(entity_type="benzinera"):
 
 def get_data_by_id1(id, entity_type="benzinera"):
     """[summary]
-    gets a response for all relevant information belonging to an id. At this point the function just sends a request to the ajax page
+    gets a response for all relevant information belonging to an id. The function just sends a request to the ajax page
     and gets back a json code
     Args:
         id ([str]): [id of the entity]
     Returns:
         [str]: [Returns the response formatted as json]
     """
-    
+    # Build headers for request
     headers = {'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
             'origin': 'https://www.bonarea.com',
             'Referer': 'https://www.bonarea.com/ca/default/locate'}
+
+    # Request URL
     url = 'https://www.bonarea-agrupa.com/locator/Localitzador/GetByID'
+
+    # Request String
     data = "id="+str(id)+"&tipus="+entity_type+"&language=ca"
+
+    # Gets response formatted as json
     response = requests.post(url, data=data, headers=headers)
     resp = response.json()
     return resp
@@ -88,9 +107,9 @@ def get_df_row_by_id(entity_id, entity_type="benzinera"):
         Gets a non-nested dafaframe of one row with all related petrol station values
     Args:
         id ([str]): [id of the entity]
-        id ([str]): [type of the entity]
+        entity_type ([str]): [type of the entity]
         Returns:
-    [tupla]: [constant values, variable values, constant and variable values of the entity type]
+    [tuple]: [constant values, variable values, constant and variable values of the entity type]
     """
     # Get diccionary from response
     dicc = get_data_by_id1(entity_id, entity_type)
@@ -150,11 +169,18 @@ def get_df_row_by_id(entity_id, entity_type="benzinera"):
     return (result, result_preus, result_all)
 
 
+
 def update_prices(entity_type = "benzinera"):
-    """Creates dataframe with prices of fuel
+    """Updates csv file with prices of fuel
+    Args:
+        entity_type ([str]): [type of the entity]
     """
+
+    # Get list of ids
     id_gasolineras_list = get_id_by_entityType1(entity_type)[0]
     csv_name = 'bonarea_gasolineras_prices.csv'
+
+    # For each retrieves data and writes line
     if os.path.isfile(csv_name):
         with open(csv_name,'a', newline='') as csvfile:
             for i in range(0,len(id_gasolineras_list)):
@@ -168,10 +194,16 @@ def update_prices(entity_type = "benzinera"):
 
 
 def update_data_and_prices(entity_type = "benzinera"):
-    """Creates dataframe with prices of fuel and constant description
+    """Updates csv file with prices of fuel and constant description
+    Args:
+        entity_type ([str]): [type of the entity]
     """
+
+    # Get list of ids
     id_gasolineras_list = get_id_by_entityType1(entity_type)[0]
     csv_name = 'bonarea_gasolineras_data_and_prices.csv'
+
+    # For each retrieves data and writes line 
     if os.path.isfile(csv_name):
         with open(csv_name,'a', newline='') as csvfile:
             for i in range(0,len(id_gasolineras_list)):
@@ -182,13 +214,21 @@ def update_data_and_prices(entity_type = "benzinera"):
             for i in range(1,len(id_gasolineras_list)):
                 csvfile.write(get_df_row_by_id(id_gasolineras_list[i])[2].to_csv(index=False, header=False))
     return
-    
+
+
 def update_dataframe_entity(out_file, entity_type):
-    """Creates dataframe if csv file does not exist and 
-    updates existing dataframes with new data
+    """Creates csv file if csv file does not exist or 
+    updates existing csv files with new data
+    Args:
+        out_file: [name of the output file]
+        entity_type ([str]): [type of the entity]
+    
     """
+    # Get list of Ids
     id_establecimientos_list = get_id_by_entityType1(entity_type)
     csv_name = out_file
+
+    # For each retrieves data and writes line
     if os.path.isfile(csv_name):
         with open(csv_name,'a', newline='') as csvfile:
             for i in range(0,len(id_establecimientos_list[0])):
@@ -199,17 +239,24 @@ def update_dataframe_entity(out_file, entity_type):
             write_ = csv.writer(csvfile)
             write_.writerow(fields)
             for i in range(0,len(id_establecimientos_list[0])):
-                csvfile.write(get_df_row_by_id(id_establecimientos_list[0][i], entity_type)[0].to_csv(index=False, header=False))
-        
+                csvfile.write(get_df_row_by_id(id_establecimientos_list[0][i], entity_type)[0].to_csv(index=False, header=False))   
     return
 
-def update_dataframe_global():
+
+def update_dataframe_global(entidades = ["super", "botiga", "benzinera", "bufet", "box", "cash", "diposit"]):
     """Function to orchestrate the creation of dataset according all bonarea entities 
+    Args:
+        entidades ([list]): [list of entity types, default: all types]
+    Returns:
+        updated dataframe
     """
-    out_file = "bonarea_establecimientos.csv"
-    entidades = ["super", "botiga", "benzinera", "bufet", "box", "cash", "diposit"]
+    # Output file
+    out_file = "bonarea_establecimientos1.csv"
+
+    # For each entity updates dataframe
     if os.path.isfile(out_file):
         pass
     else:
         for i in entidades:
             update_dataframe_entity(out_file, i)
+
