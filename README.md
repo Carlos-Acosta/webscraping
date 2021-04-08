@@ -75,5 +75,5 @@ Database released under Open Data Commons Open Database License (ODbL) v1.0, ind
 3. Lawson, R. (2015). _Web Scraping with Python_. Packt Publishing Ltd. Chapter 5. Dynamic Data.  
 
 ## Digital Object Identifier (DOI) del juego de datos
-DOI: 10.5281/zenodo.4671856
+DOI: 10.5281/zenodo.4671856<p>
 Link: https://doi.org/10.5281/zenodo.4671856
