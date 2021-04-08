@@ -64,13 +64,16 @@ Debido a que parte del dataset se debe generar diariamente con los datos de refe
 
 Este proyecto dispone de una memoria con información exhaustiva y explicaciones en cuanto a la elaboración del dataset. La memoria se dispone en formato docx y pdf en la carpeta "Informe".  
 
+## License
+
+Database released under Open Data Commons Open Database License (ODbL) v1.0, individual contents under Database Contents License (DbCL) v1.0
+
 ## Recursos
 
 1. Lawson, R. (2015). _Web Scraping with Python_. Packt Publishing Ltd. Chapter 2. Scraping the Data.
 2. Mitchel, R. (2015). _Web Scraping with Python: Collecting Data from the Modern Web_. O'Reilly Media, Inc. Chapter 1. Your First Web Scraper.
 3. Lawson, R. (2015). _Web Scraping with Python_. Packt Publishing Ltd. Chapter 5. Dynamic Data.  
 
-## License
-
-Database released under Open Data Commons Open Database License (ODbL) v1.0, individual contents under Database Contents License (DbCL) v1.0
-
+## Digital Object Identifier (DOI) del juego de datos
+DOI: 10.5281/zenodo.4671856
+Link: https://doi.org/10.5281/zenodo.4671856

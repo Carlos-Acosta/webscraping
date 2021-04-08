@@ -96,7 +96,7 @@ def report(type_report):
 
         elif (type_report == "4"):
             # Report 4: Geographical HeatMap with the prices by product of all petrol stations
-            # Introduction of user's API (api = "AIzaSyDAQtZoSJcyMCoLMBIutENA3WrMLf3YF3w")
+            # Introduction of user's API 
             api = str(input("Enter your API for google maps: "))
             result = heatmap(api, csv_file, petrol_product_type)
 
