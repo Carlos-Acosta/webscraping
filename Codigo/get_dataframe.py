@@ -20,7 +20,7 @@ print()
 print("Option 2 will get a updated dataset of the petrol station prices by product every time the query is risen")
 print()
 print()
-print("Option 3 will get the combination of option 1 and 2 for petro station only (easier to handle, but it is not optimized for memory purposes)")
+print("Option 3 will get the combination of option 1 and 2 for petrol station only (easier to handle, but it is not optimized for memory purposes)")
 
 # User dataset option
 type_of_dataset = str(input("Enter the selected option: "))

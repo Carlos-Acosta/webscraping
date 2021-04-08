@@ -251,7 +251,7 @@ def update_dataframe_global(entidades = ["super", "botiga", "benzinera", "bufet"
         updated dataframe
     """
     # Output file
-    out_file = "bonarea_establecimientos1.csv"
+    out_file = "bonarea_establecimientos.csv"
 
     # For each entity updates dataframe
     if os.path.isfile(out_file):
