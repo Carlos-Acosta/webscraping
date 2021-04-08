@@ -13,7 +13,7 @@ El informe del proyecto se encuentra tanto en formato docx como en pdf.<p>
 
 La actividad ha sido realizada por: **Olga Garcés Ciemerozum** y **Carlos Acosta Quintas**.
 
-## Ficheros del código fuente
+## Ficheros del código fuente 
 
 * **get_dataframe.py**: Generador de los diferentes dataframes 'a la carte' a petición del usuario (formato archivo: csv).
 * **get_reports.py**: Generador de las diferentes aplicaciones 'a la carte' a petición del usuario (formato archivo: varios).
